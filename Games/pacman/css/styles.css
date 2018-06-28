@@ -1,0 +1,17 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div.row div {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    display: inline;
+}
+
+div.brick {
+    
+}
