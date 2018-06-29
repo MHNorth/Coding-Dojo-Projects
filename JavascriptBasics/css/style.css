@@ -1,0 +1,95 @@
+ * {
+    margin: 0px 0px;
+    padding: 0px;
+    font-family: 'Arial', 'Helvetica';
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif, Arial;
+    font-size: 14px;
+}
+
+
+#container {
+    width: 970px;
+    min-height: 600px;
+    background-color: #1B335D;
+    margin: 0px auto;
+    padding: 5px;
+}
+.title {
+    background-color:red;
+    border-radius: 10px;
+    padding-top: 8px;
+    padding-left: 5px;
+    height:45px;
+    margin: 5px 0px 15px 5px;
+    color: white;
+    
+}
+
+
+.nav {
+    background-color:red;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-top: 16px;
+    height:180px;
+    width:16%;
+    margin-left:10px;
+    margin-top:10px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    transform: translate(-5px);
+    
+}
+
+.nav a {
+    margin: 0px 0px 0px 0px;
+}
+
+.nav a ul {
+    padding-left: 5px;
+}
+
+.content {
+    background-color: black;
+    border-radius: 10px;
+    padding: 15px;
+    height:420px;
+    width:73%;
+    margin-left:15px;
+    margin-right:5px;
+    margin-top:10px;
+    display: inline-block;
+    color: white;
+    font-size: 12px;
+    transform: translate(15px);
+}
+
+.content h3, .content li {
+    margin-bottom: 8px;
+}
+
+
+.first {
+    margin: 10px;
+}
+
+.footer {
+    background-color: grey;
+    border-radius: 10px;
+    padding: 15px;
+    height: 15px;
+    margin-top: 10px;
+}
+
+.footer p {
+    font-weight: 700;
+    color: white;
+}
+
+a {
+    color:lightblue;
+}
