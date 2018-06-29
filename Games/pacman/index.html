@@ -8,6 +8,35 @@
         <title>Pacman Demo</title>
         <meta name="description" content="This is a pacman game." >
         <link rel="stylesheet" href="css/styles.css">
+        <script>
+            var world = [
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+                
+                ];
+
+                function displayWorld() {
+                    var = output = '';
+
+                    for
+                }
+
+
+        
+        </script>
         
 
     </head>
@@ -25,29 +54,15 @@
             <div class='brick'></div>
             <div class='brick'></div>
             <div class='brick'></div>
-        </div>
-        <div class='row'>
             <div class='brick'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
             <div class='brick'></div>
-            </div>
-        <div class='row'>
             <div class='brick'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
-            <div class='coin'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
             <div class='brick'></div>
         </div>
         <div class='row'>
@@ -60,9 +75,293 @@
             <div class='coin'></div>
             <div class='coin'></div>
             <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='pacman'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
             <div class='brick'></div>
         </div>
         <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='coin'></div>
+            <div class='brick'></div>
+        </div>
+        <div class='row'>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
+            <div class='brick'></div>
             <div class='brick'></div>
             <div class='brick'></div>
             <div class='brick'></div>

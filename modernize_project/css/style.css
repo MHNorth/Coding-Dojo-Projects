@@ -1,0 +1,176 @@
+/* HTML Template */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html {
+    background-color: #fff;
+    color: #F2F2F2;
+    font-family: 'Lato','Arial','san-serif';
+    font-weight: 600;
+    font-size: 14px;
+    text-rendering: optimizeLegibility;
+    }
+
+
+#container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+}
+
+/* Header */
+
+#header {
+    background-color: black;
+    min-height: 120px;
+}
+
+
+#header p {
+    display: inline-block;
+    transform: translate(600px, 35px)
+
+}
+
+#header p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Main Navigation */
+
+.nav {
+    background-color: rgb(99, 8, 8);
+    min-height: 55px;
+    width: 1000px;
+    float:left;
+    list-style: none;
+}
+
+.nav-div a {
+    color: #CFCFCF;
+    text-decoration: none;
+}
+
+.nav-div li {
+    margin-right: 20px;
+    margin-left: 10px;
+    display: inline-block;
+    transform: translate(0px, 18px)
+}
+
+/* Slider */
+
+.slider {
+    min-height: 350px;
+    background-color: grey;
+    width: 1000px;
+
+}
+
+.slider .img {
+    width: 1000px;
+    height: 350px;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Hero Section */
+
+
+.services {
+    min-height: 150px;
+    background-color: #1A1A1A;
+    width: 1000px;
+}
+
+.services h2 {
+    color: #F08A3F;
+    font-weight: 600px;
+}
+
+
+.call2action {
+    min-height: 100px;
+    background-color: #1A1A1A;
+    width: 1000px;
+}
+
+.span_1 {
+    display: inline-block;
+    width: 600px;
+}
+
+.span_2 {
+    display:inline-block;
+    float: right;
+    transform: translate(-130px, 25px)
+}
+
+/* Footer */
+
+.portfolio {
+    min-height: 450px;
+    background-color: #1A1A1A;
+    width: 1000px;
+    margin-right: 15px;
+}
+
+.portfolio h3{
+    color: #F08A3F;
+    font-weight: 600px;
+    }
+
+
+.portfolio a {
+    display: inline-block;
+    float: right;
+    transform: translate(-30px)
+}
+
+.plink {
+    height: 150px;
+}
+
+
+/* Columns and Rows */
+
+.span_4_of_4 {
+	width: 23.8%; 
+}
+
+.span_3_of_4 {
+	width: 23.8%; 
+}
+
+.span_2_of_4 {
+	width: 23.8%; 
+}
+
+.span_1_of_4 {
+	width: 23.8%; 
+}
+
+
+.span_2_of_2 {
+	width: 18%;
+}
+
+.span_1_of_2 {
+	width: 5%;
+}
+
+
+.col {
+	display: block;
+	float:left;
+    margin: 0 0 0 0;
+
+}
+    
