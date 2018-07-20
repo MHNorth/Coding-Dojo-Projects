@@ -1,0 +1,97 @@
+/*CSS reset settings here*/
+* {
+    margin: 5px;
+    box-sizing: border-box;
+   }
+
+   #wrapper{
+    min-height: 100%;
+    margin-right: 250px;
+    background-color: #C0C0C0;
+   }
+   
+   #header{
+    min-height: 30%;
+    margin-right: 220px;
+    background-color: green;
+
+   }
+   #navigation{
+    min-height: 10%;
+    background-color: blue;
+    display: inline-block;
+    vertical-align: top;
+   }
+   #main_content{
+    min-height: 60%;
+    background-color: red;
+    display: inline-block;
+   }
+   .subcontents{
+    min-height: 50%;
+    background-color: yellow;
+    display: inline-block;
+   }
+   #advertisement{
+    min-height: 30%;
+    background-color: purple;
+    display: inline-block;
+   }
+
+
+  
+   
+   /* Media Queries */
+/* 
+@media only screen and (max-width: 480px){
+    
+
+
+}
+
+@media only screen and (min-width: 481px){
+
+
+} */
+
+
+@media only screen and (min-width: 1024px){
+    #wrapper{
+        min-height: 100%;
+        margin-right: 250px;
+        background-color: #C0C0C0;
+       }
+       
+       #header{
+        min-height: 30%;
+        margin-right: 220px;
+        background-color: green;
+
+       }
+       #navigation{
+        min-height: 10%;
+        background-color: blue;
+        display: inline-block;
+        vertical-align: top;
+       }
+       #main_content{
+        min-height: 60%;
+        background-color: red;
+        display: inline-block;
+       }
+       .subcontents{
+        min-height: 50%;
+        background-color: yellow;
+        display: inline-block;
+       }
+       #advertisement{
+        min-height: 30%;
+        background-color: purple;
+        display: inline-block;
+       }
+
+
+}
+
+
+

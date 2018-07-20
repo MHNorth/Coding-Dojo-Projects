@@ -1,0 +1,109 @@
+/* Container */
+
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px){
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+
+    .container {
+        height: 20%;
+        margin: 20px 20px 20px 20px;
+        padding: 10px;
+        background-color:teal;
+        }
+
+    .firstdiv {
+        height: 50px;
+        font-size: 16px;
+        background-color: #B3B3B3;
+        padding: 10px;
+        color: black;
+    }
+    
+    .seconddiv {
+        height: 110px;
+        background-color: #CCCCCC;
+        padding: 10px;
+        color: black;
+    }
+    
+    .thirddiv {
+        height: 40px;
+        background-color: #FFFF99;
+        padding: 10px;
+        color: black;
+    }
+    
+}
+
+@media only screen and (min-width: 481px){
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    .container {
+        height: 20%;
+        margin: 20px 20px 20px 20px;
+        padding: 10px;
+        background-color: pink;
+        }
+
+    .firstdiv {
+        height: 50px;
+        font-size: 16px;
+        background-color: #B3B3B3;
+        padding: 10px;
+        color: black;
+    }
+    
+    .seconddiv {
+        height: 110px;
+        background-color: #CCCCCC;
+        padding: 10px;
+        color: yellow;
+    }
+    
+    .thirddiv {
+         height: 40px;
+        background-color: #FFFF99;
+        padding: 10px;
+    }
+}
+@media only screen and (min-width: 1024px){
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+  
+    .container {
+        height: 20%;
+        margin: 20px 20px 20px 20px;
+        padding: 10px;
+        background-color: white;
+        }
+
+    .firstdiv {
+        height: 50px;
+        font-size: 16px;
+        background-color: black;
+        padding: 10px;
+        color: white;
+    }
+    
+    .seconddiv {
+        height: 110px;
+        background-color: darkgray;
+        padding: 10px;
+        color: white;
+    }
+    
+    .thirddiv {
+        height: 40px;
+        background-color: lightgray;
+        padding: 10px;
+        color: white;
+    }
+}
