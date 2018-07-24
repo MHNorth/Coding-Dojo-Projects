@@ -7,6 +7,6 @@ verify_ssl = true
 gunicorn = "==19.8.1"
 
 [requires]
-python_version = "3.5"
+python_version = "3.6.6"
 
 [dev-packages]
