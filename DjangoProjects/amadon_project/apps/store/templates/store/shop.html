@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% load static %}
+        {% block title %}
+        {% if category %}{{ category.name }} {% else %} Products {% endif %}
+        {% endblock %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Amadon Ecommerce | Shop</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static "img/core-img/favicon.ico" %}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <link rel="stylesheet" href="{% static "css/core-style.css" %}">
+
+</head>
+{% block content %}
+<body>
+
+        <form action='/amadon/buy' method='post'>
+            {% csrf_token %}
+            <select name='quantity'>
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>3</option>
+               <option>3</option>
+            </select>
+            <input type='hidden' name='product_id' value='1015' />
+            <button type='submit'>Buy!</button>
+          </form>
+          
+   
+
+    <script src="{% static "js/jquery/jquery-2.2.4.min.js" %}"></script>
+    <!-- Popper js -->
+    <script src="{% static "js/bootstrap/popper.min.js" %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static "js/bootstrap/bootstrap.min.js" %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static "js/plugins/plugins.js" %}"></script>
+    <!-- Active js -->
+    <script src="{% static "js/active.js" %}"></script>
+  
+</body>
+{% endblock %}
+</html>

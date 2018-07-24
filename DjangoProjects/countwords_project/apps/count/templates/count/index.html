@@ -22,17 +22,16 @@
 
     <body>
 
-        <h2>Hello World This Is My Count app!!</h2>
-        <img src="{% static "img/blog-img/1.jpg" alt="" %}">
+        <h2>WORD COUNT</h2>
 
-        <form action="/blogs/create" method="post">
+        <form action="{% url 'countwords' %}" method="post">
             {% csrf_token %}
-            <label for="name">Blog Name:</label>
-            <input type="text" id="name" name="name" placeholder="blog name">
-            <label for="desc">Description:</label>        
-            <textarea id="desc" name="desc" placeholder="description"></textarea>
-            <button type="submit">Submit</button>
+        <br>
+            <textarea id="text" name="fulltext" placeholder="description" cols="40" rows="8"></textarea><br>
+            <button type="submit" value="count">Count!</button>
         </form>
+        
+        
 
 
 

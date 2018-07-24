@@ -23,7 +23,11 @@
     <body>
 
         <h2>Hello World This Is My Display Time app!!</h2>
-        <img src="{% static "img/blog-img/1.jpg" alt="" %}">
+        <img src="{% static "img/blog-img/1.jpg" alt="My Blog Photo" %}">
+
+        {{ url_for('static', filename='images/planets.jpeg' ) }}
+
+        <h3>Visit Me at:</h3>
 
         <form action="/blogs/create" method="post">
             {% csrf_token %}
