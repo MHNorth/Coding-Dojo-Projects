@@ -5,24 +5,30 @@
 {% block content %}
 
      
-<div class="container">
-        <h1 class="h1 mb-3 font-weight-normal">This is the Blog Post Page</h1> 
-        <div class="box">
-        <h3 class="h3 mb-3 font-weight-normal">Blog Post Entries</h3>
+        <div class="container">
+            <h1 class="h1 mb-3 font-weight-normal">Welcome to the Blog Section!</h1> 
+                <div class="card-panel teal lighten-4">
+                    <h3 class="h3 mb-3 font-weight-normal">Blog Posts</h3>
+                    {% for post in object_list %}
 
-      
-        {% for x in object_list %}
-            <div class="post-entry">
-                <h2><a href="">{{ x.title }}</a></h2>  
-                <p>{{ x.body }}</p>
-            </div>
-
-        {% endfor %}
+                    <div class="post-entry">
+                        
+                        <h3 class="h3 mb-3 font-weight-normal"><a href="{% url 'blogdetails' post.pk %}">{{ post.title }}</a></h3>
+                        
+                        <p>{{ post.body }}</p>
+                    </div>
+                    
+                    {% endfor %}         
+                    
+                    <a  href="{% url 'post_new' %}"><input class="btn waves-effect red lighten-2 z-depth-3"  type="submit" value="Add New"></a>
+            
+                </div>
+                
         </div>
-        </div>
-    
-{% endblock content %}
-
+            
+        
+                
+        {% endblock %}
       
 
 

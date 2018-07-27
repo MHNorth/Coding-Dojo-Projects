@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
         <style>
@@ -19,8 +20,8 @@
                 padding: 100px;
             }
             .box {
-                margin-right: 20px;
-                width: 370px;
+                margin-right: 10px;
+                width: 350px;
                 height: 500px;
                 border: 1px solid gray;
                 display: inline-block;
@@ -29,8 +30,8 @@
                 border-radius: 10px;
             }
 
-            i {
-                font-size: 2rm;
+            .i {
+                font-size: 1rm;
             }
         </style>
 
@@ -42,11 +43,11 @@
                 <nav>
                         <div class="nav-wrapper">
                           <ul class="right hide-on-med-and-down">
-                            <li><a href="{% url 'home' %}" class="waves-effect teal lighten-3 btn z-depth-3">Home <i class="material-cloud right"></i></a></li>
-                            <li><a href="{% url 'about' %}" class="waves-effect teal lighten-3 btn z-depth-3">About <i class="material-cloud right"></i></a></li>
-                            <li><a href="{% url 'blogpost' %}" class="waves-effect teal lighten-3 btn z-depth-3">Posts <i class="material-cloud right"></i></a></li>
-                            <li><a href="{% url 'articles' %}" class="waves-effect teal lighten-3 btn z-depth-3">Articles <i class="material-cloud right"></i></a></li>
-                            <li><a href="{% url 'shop' %}" class="waves-effect teal lighten-3 btn z-depth-3">Shop <i class="material-cloud right"></i></a></li>
+                            <li><a href="{% url 'home' %}" class="waves-effect teal lighten-3 btn z-depth-3">Home <i class="material-icons right">cloud_queue</i></a></li>
+                            <li><a href="{% url 'about' %}" class="waves-effect teal lighten-3 btn z-depth-3">About <i class="material-icons right">cloud_queue</i></a></li>
+                            <li><a href="{% url 'blogpost' %}" class="waves-effect teal lighten-3 btn z-depth-3">Posts <i class="material-icons right">cloud_queue</i></a></li>
+                            <li><a href="{% url 'articles' %}" class="waves-effect teal lighten-3 btn z-depth-3">Articles <i class="material-icons right">cloud_queue</i></a></li>
+                            <li><a href="{% url 'shop' %}" class="waves-effect teal lighten-3 btn z-depth-3">Shop <i class="material-icons right">cloud_queue</i></a></li>
                           </ul>
                         </div>
                       </nav>

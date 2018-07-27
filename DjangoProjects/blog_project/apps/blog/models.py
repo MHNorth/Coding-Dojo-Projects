@@ -1,6 +1,7 @@
 from django.db import models
 import re, bcrypt
 from datetime import datetime
+from django.urls import reverse
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9+-_.]+\.[a-zA-Z]+$')
 

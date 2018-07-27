@@ -4,13 +4,23 @@
     
 {% block content %}
 
+     
 <div class="container">
-        <h1 class="h1 mb-3 font-weight-normal">Post Detail Page</h1>
-            <div class="post-entry">
-                <h2>{{ blog_details.title }}</h2>
-                <p>{{ blog_details.body }}</p>
+        <h2 class="h2 mb-3 font-weight-normal">Welcome to the Blog Details Section!</h2> 
+            <div class="card-panel teal lighten-4">
+                <h3 class="h3 mb-3 font-weight-normal">Blog Posts Details</h3>
+                
+                <div class="post-entry">
+                        
+                        <h3 class="h3 mb-3 font-weight-normal"><a href="">{{ blogdetails.title }}</a></h3>
+                        
+                        <p>{{ blogdetails.body }}</p>
+                    
+                    </div>      
+              
+        
             </div>
-            </div>
+    </div>
 
         
     

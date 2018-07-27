@@ -2,6 +2,7 @@
 {% extends 'blog/base.html' %}
 
 
+
                
 {% block content %}
 
@@ -30,7 +31,7 @@
                         <input class="form-control" type="text" name="email" placeholder="Email">
                         <input class="form-control" type="password" name="password" placeholder="Password">
                         <input class="form-control" type="password" name="confirm" placeholder="Confirm Password">
-                        <input class="btn waves-effect teal lighten-3 z-depth-3"  type="submit" value="Register">
+                        <input class="btn waves-effect red lighten-2 z-depth-3"  type="submit" value="Register">
                     </form>
                 </div>
                 <div class="box">
@@ -39,7 +40,7 @@
                         {% csrf_token %}
                         <input class="form-control" type="text" name="email" placeholder="Email"><br>
                         <input class="form-control" type="password" name="password" placeholder="Password">
-                        <input class="btn waves-effect teal lighten-3 z-depth-3" type="submit" value="Login">
+                        <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" value="Login">
                     </form>
                 </div>
             
