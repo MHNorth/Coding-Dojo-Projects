@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+
+        <title>Maika's Blog App Project | Blog Home Page</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+
+        <style>
+            .container {
+                width: 1000px;
+                margin: 0 auto;
+                padding: 100px;
+            }
+            .box {
+                margin-right: 20px;
+                width: 370px;
+                height: 500px;
+                border: 1px solid gray;
+                display: inline-block;
+                vertical-align: top;
+                padding: 50px;
+                border-radius: 10px;
+            }
+
+            i {
+                font-size: 2rm;
+            }
+        </style>
+
+    </head>
+ 
+ 
+    <body>
+        <header>
+                <nav>
+                        <div class="nav-wrapper">
+                          <ul class="right hide-on-med-and-down">
+                            <li><a href="{% url 'home' %}" class="waves-effect teal lighten-3 btn z-depth-3">Home <i class="material-cloud right"></i></a></li>
+                            <li><a href="{% url 'about' %}" class="waves-effect teal lighten-3 btn z-depth-3">About <i class="material-cloud right"></i></a></li>
+                            <li><a href="{% url 'blogpost' %}" class="waves-effect teal lighten-3 btn z-depth-3">Posts <i class="material-cloud right"></i></a></li>
+                            <li><a href="{% url 'articles' %}" class="waves-effect teal lighten-3 btn z-depth-3">Articles <i class="material-cloud right"></i></a></li>
+                            <li><a href="{% url 'shop' %}" class="waves-effect teal lighten-3 btn z-depth-3">Shop <i class="material-cloud right"></i></a></li>
+                          </ul>
+                        </div>
+                      </nav>
+
+             
+        </header>
+
+        <div>
+        {% block content %}
+
+
+
+        {% endblock content %}
+        </div>
+
+    </body>
+
+</html>

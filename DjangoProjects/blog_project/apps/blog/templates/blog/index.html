@@ -1,0 +1,88 @@
+
+{% extends 'blog/base.html' %}
+
+
+               
+{% block content %}
+
+{% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+{% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+{% else %}
+    <p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+
+        <div class="container">
+                <h1 class="h1 mb-3 font-weight-normal">Welcome to My Awesome Site!</h1>
+                <div class="box">
+                    <h3 class="h3 mb-3 font-weight-normal">Register</h3>
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" name="first_name" placeholder="First Name">
+                        <input class="form-control" type="text" name="last_name" placeholder="Last Name">
+                        <input class="form-control" type="text" name="email" placeholder="Email">
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                        <input class="form-control" type="password" name="confirm" placeholder="Confirm Password">
+                        <input class="btn waves-effect teal lighten-3 z-depth-3"  type="submit" value="Register">
+                    </form>
+                </div>
+                <div class="box">
+                    <h3 class="h3 mb-3 font-weight-normal">Login</h3>
+                    <form action="/login" method="post">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                        <input class="btn waves-effect teal lighten-3 z-depth-3" type="submit" value="Login">
+                    </form>
+                </div>
+            
+        
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

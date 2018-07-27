@@ -1,0 +1,25 @@
+
+
+{% extends 'blog/base.html' %}
+
+
+        {% block content %}
+
+        <div class="container">
+        <h1 class="h1 mb-3 font-weight-normal">This is My Article Page</h1>
+        <div class="box">
+        <h3 class="h3 mb-3 font-weight-normal">Article Post Entries</h3>
+
+      
+        {% for x in object_list %}
+            <div class="post-entry">
+                <h2><a href="">{{ x.title }}</a></h2>  
+                <p>{{ x.body }}</p>
+            </div>
+
+        {% endfor %}
+        </div>
+        </div>
+                            
+
+        {% endblock content %}
