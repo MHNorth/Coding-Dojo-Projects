@@ -4,8 +4,11 @@
 
     <head>
         
-
-        <title>Maika's Blog App Project | Blog Home Page</title>
+            
+        <title>
+            Maika's Blog App Project | Blog Home Page
+        </title>
+        
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -44,11 +47,16 @@
                         <div class="nav-wrapper">
                           <ul class="right hide-on-med-and-down">
                             <li><a href="{% url 'home' %}" class="waves-effect teal lighten-3 btn z-depth-3">Home <i class="material-icons right">cloud_queue</i></a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}" class="waves-effect teal lighten-3 btn z-depth-3">Logout<i class="material-icons right">cloud_queue</i></a></li>
+                            {% else %}  
                             <li><a href="{% url 'about' %}" class="waves-effect teal lighten-3 btn z-depth-3">About <i class="material-icons right">cloud_queue</i></a></li>
                             <li><a href="{% url 'blogpost' %}" class="waves-effect teal lighten-3 btn z-depth-3">Posts <i class="material-icons right">cloud_queue</i></a></li>
                             <li><a href="{% url 'articles' %}" class="waves-effect teal lighten-3 btn z-depth-3">Articles <i class="material-icons right">cloud_queue</i></a></li>
                             <li><a href="{% url 'shop' %}" class="waves-effect teal lighten-3 btn z-depth-3">Shop <i class="material-icons right">cloud_queue</i></a></li>
-                          </ul>
+                            <li><a href="{% url 'login' %}" class="waves-effect teal lighten-3 btn z-depth-3">Login<i class="material-icons right">cloud_queue</i></a></li>                                                                          
+                            {% endif %}                          
+                        </ul>
                         </div>
                       </nav>
 
