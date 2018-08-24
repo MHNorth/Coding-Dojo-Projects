@@ -1,0 +1,74 @@
+{% extends 'social/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Courses
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+                <div class="card-panel teal lighten-3">               
+                        <div class="flex-container">
+                            <span class="h2 mb-3 font-weight-normal">Courses Project</span>  
+                        </div>
+
+                        <div>
+                            <span class="h5 mb-3 font-weight-normal">Add a new course</span>  
+                        </div>
+
+                        <form action="courseadd" method="POST" class="col s12">
+                            {% csrf_token %}
+                            <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <label for="icon_prefix">Name:</label>&nbsp;&nbsp;
+                                    <input id="icon_prefix" type="text" class="validate" name="course">
+                                    
+                            </div>
+                        
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <label for="textarea1">Description:</label>&nbsp;&nbsp;
+                                <input id="textarea1" type="text" class="validate" name="description">
+                            </div>
+                          
+                            <button class="btn-small waves-effect red lighten-2 z-depth-3">Add</button>  
+                        </form>
+                        <p></p>
+                        <hr>
+                        
+                <div>
+                    <div>
+                        <span class="h5 mb-3 font-weight-normal">Courses</span>  
+                    </div>
+                        <table class="table">
+                                        <thead class="red lighten-2">
+                                          <tr>
+                                            <th scope="col">Course Name</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Date Added</th>
+                                            <th scope="col">Actions</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+
+                                          <tr>
+                                            <td>{{ request.session.course }}</td>
+                                            <td>{{ request.session.description }}</td>
+                                            <td>{{ request.session.date }}</td>
+                                            <td><a href="{% url 'courseremoverequest' %}">remove</a></td>
+                                          </tr>
+                                        </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+</div>
+
+{% endblock %}
+
+

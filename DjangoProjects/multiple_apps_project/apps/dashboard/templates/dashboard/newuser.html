@@ -1,0 +1,42 @@
+{% extends 'social/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Add A User
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+        <h3 class="h3 mb-3 font-weight-normal">Welcome to our Dashboard!</h3>
+        <div class="box">
+        <h5 class="h4 mb-3 font-weight-normal">Add a new user.</h5>
+                <form action="{% url 'register' %}" method="POST">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" name="email" placeholder="Email Address:">
+                        <input class="form-control" type="text" name="first_name" placeholder="First Name:">
+                        <input class="form-control" type="text" name="last_name" placeholder="Last Name:">
+                        <input class="form-control" type="password" name="password" placeholder="Password:">
+                        <input class="form-control" type="password" name="confirm" placeholder="Confirm PW:">                              
+                        <input class="btn-small waves-effect red lighten-1 z-depth-3"  type="submit" value="Create">
+                </form>
+</div>            
+        
+                <!-- {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                                <li> {% if message.tags %} class="{{ message.tags }}"
+                                        {% endif %} 
+                                        {{ message }}
+                                </li>
+                        {% endfor %}
+                        </ul>
+                {% endif %} -->
+
+
+
+</div>
+{% endblock %}

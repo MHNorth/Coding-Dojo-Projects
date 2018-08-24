@@ -1,0 +1,42 @@
+{% extends 'social/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  User Signin
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+        <h3 class="h3 mb-3 font-weight-normal">Welcome to our Dashboard!</h3>
+        <div class="box">
+        <h5 class="h4 mb-3 font-weight-normal">Login.</h5>
+                <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" name="email" placeholder="Email Address:"><br>
+                        <input class="form-control" type="password" name="password" placeholder="Password:">
+                        <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" value="Sign In">
+                </form>
+                <p></p>
+                <a href=""><h5 class="h6 mb-3 font-weight-normal">Don't have an account? Register.</h5></a>
+
+        </div>            
+        
+{% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+                <li> {% if message.tags %} class="{{ message.tags }}"
+                        {% endif %} 
+                        {{ message }}
+                </li>
+        {% endfor %}
+        </ul>
+{% endif %}
+
+
+
+</div>
+{% endblock %}

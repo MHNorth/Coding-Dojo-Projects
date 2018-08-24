@@ -1,0 +1,97 @@
+{% extends 'social/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Session Words
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+    <span class="h3 mb-3 font-weight-normal">Welcome to Session Words!</span> 
+    <div class="card-panel teal lighten-4">           
+    <div class="row">
+            <div class="col s4">
+                <form action="addwords" method="POST"> 
+                  {% csrf_token %}
+                <div class="flex-container3">
+                  <span class=" h3 mb-3 font-weight-normal">Add a new word:</span>
+                  <div class="wsession"><input class= "input-field" type="text" name="addword"></div>                
+                </div> 
+                <p></p> 
+                <p></p>
+                <hr>
+            <div class="flex-container3">
+                <span class="h5 mb-3 font-weight-normal"><b>Choose a color</b></span>
+                          <label>
+                            <input hidden type="radio" name="color" value="null" checked />
+                          </label>                       
+                        <p>
+                          <label>
+                            <input name="color" value="sred" type="radio" />
+                            <span><b class="sred">Red</b></span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <input name="color" value="sgreen" type="radio" />
+                            <span><b class="sgreen">Green</b></span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <input name="color" value="sblue" type="radio"  />
+                            <span><b class="sblue">Blue</b></span>
+                          </label>
+                        </p>
+
+                    <p>
+                        <label>
+                            <input type="checkbox" class="filled-in" name="Bigfont"/>
+                            <span><b>show in BIG fonts!</b></span>
+                        </label>
+                    </p> 
+
+                    <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" name="submit" value="Add to Session">
+              </div>
+              </form>                
+            </div>
+
+            <div class="vl"></div>
+
+            <div class="col s4">
+                <form action="clear" method="POST">
+                  {% csrf_token %}
+                    <div class="flex-container2">                    
+                          <input class="btn waves-effect red lighten-2 z-depth-3" name="name" type="submit" value="Clear Session">
+                    </div>
+                </form>
+                    <p></p>
+                    <hr>
+                    
+                    <div class="scroll-box">
+                      {% for sword in request.session.word %}
+                      <p>
+                        <span class="{{ sword.color }} {{ sword.font }}">{{ sword.word }}</span>
+                        <span class="stiny"> --added on --> {{ sword.time }}</span>
+                      </p>
+                      {% endfor %}
+                    </div>            
+            </div>
+      
+    </div>
+
+
+   
+         
+       
+                
+    </div>                     
+
+
+
+</div>
+{% endblock %}

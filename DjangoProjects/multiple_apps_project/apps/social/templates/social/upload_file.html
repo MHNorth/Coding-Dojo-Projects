@@ -1,0 +1,35 @@
+{% extends 'social/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  File Upload
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+    <div class="flex-container">
+        <span class="h3 mb-3 font-weight-normal">File Upload</span> 
+        
+    </div> 
+    <div class="card-panel teal lighten-2">               
+            <form action="#">
+                    <div class="file-field input-field">
+                      <div class="btn waves-effect red lighten-2 z-depth-3">
+                        <span>upload file</span>
+                        <input type="file" multiple>
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                      </div>
+                    </div>
+                  </form>                   
+        </div>
+
+
+
+</div>
+{% endblock %}
