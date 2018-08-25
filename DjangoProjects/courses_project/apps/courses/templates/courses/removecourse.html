@@ -33,7 +33,7 @@
                         <div class="flex-course row">                          
                             <a href="{% url 'coursehome' %}"><button class="btn-small waves-effect red lighten-2 z-depth-3">No</button></a>&nbsp;&nbsp;                           
                           
-                            <form action="courseremove" class="flex-container8">
+                            <form action="courseremove/{{course.id}}" class="flex-container8">
                             {% csrf_token %} 
                                 <button class="btn-small waves-effect red accent-4 z-depth-3">Yes!  I want to delete this course</button>
                             </form><p></p>                

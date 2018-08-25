@@ -1,29 +1,34 @@
 from django.shortcuts import render, redirect
-from time import localtime, strftime
-from .models import Courses
+from .models import Course
 
 
 
-
+allcourses = Course.objects.all()
 
 def CourseHome(request):
-        return render(request, 'courses/coursehome.html')  
+        if request.session:
+                context = {
+                        'allcourses': allcourses,
+                }
+        return render(request, 'courses/coursehome.html', context)  
 
 def CourseAdd(request):
-        date_now = strftime("%B %d, %Y %H:%M %p", localtime())
-        if request.method == "POST":
-                request.session["course"] = request.POST["course"]
-                request.session["description"] = request.POST["description"]
-                request.session["date"] = date_now
+        
+        addC = Course.objects.addCourse(
+                request.POST["course"],
+                request.POST["description"],
+                )
 
         return redirect('coursehome')
 
+
 def RemoveCourseRequest(request):
-        request.session
         return render(request, 'courses/removecourse.html') 
 
-def RemoveCourse(request):
-        request.session.clear()
+def RemoveCourse(request, id):
+
+        Course.objects.get(id=id).delete()   
+
         return redirect('coursehome')
 
 

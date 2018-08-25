@@ -53,15 +53,19 @@
                                             <th scope="col">Actions</th>
                                           </tr>
                                         </thead>
+                                        <form action="courseadd" method="POST" class="col s12">
+                                        {% csrf_token %}
                                         <tbody>
-
+                                            {% for item in allcourses %}
                                           <tr>
-                                            <td>{{ request.session.course }}</td>
-                                            <td>{{ request.session.description }}</td>
-                                            <td>{{ request.session.date }}</td>
+                                            <td>{{ item.courseName }}</td>
+                                            <td>{{ item.description }}</td>
+                                            <td>{{ item.dateAdded }}</td>
                                             <td><a href="{% url 'courseremoverequest' %}">remove</a></td>
+                                            {% endfor %}
                                           </tr>
                                         </tbody>
+                                        </form>
                         </table>
                     </div>
 
