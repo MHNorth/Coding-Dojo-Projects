@@ -1,97 +1,43 @@
 from django.db import models
-import re, bcrypt
-from datetime import datetime
-from django.urls import reverse
-
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9+-_.]+\.[a-zA-Z]+$')
-
-# Create your models here.
-
-class UserManager(models.Manager):
-    def register(self, form_data):
-        # print("inside of your models!!!", form_data)
-        errors = []
-
-        if len(form_data["first_name"]) < 1:
-            errors.append("First name is required")
-        elif len(form_data["first_name"]) < 2:
-            errors.append("First name must be 2 letters or longer")
-        
-        if len(form_data["last_name"]) < 1:
-            errors.append("Last name is required")
-        elif len(form_data["last_name"]) < 2:
-            errors.append("Last name must be 2 letters or longer")
-
-        if len(form_data["email"]) < 1:
-            errors.append("Email is required")
-        elif not EMAIL_REGEX.match(form_data["email"]):
-            errors.append("Invalid Email")
-        else:
-            if len(User.objects.filter(email=form_data["email"].lower())) > 0:
-                errors.append("Email already in use")
-
-        if len(form_data["password"]) < 1:
-            errors.append("Password is required")
-        elif len(form_data["password"]) < 8:
-            errors.append("Password must be 8 letters or longer")
-
-        if len(form_data["confirm"]) < 1:
-            errors.append("Confirm Password is required")
-        elif form_data["password"] != form_data["confirm"]:
-            errors.append("Confirm Password must match Password")
-
-        if len(errors) == 0:
-            hashed_pw = bcrypt.hashpw(form_data["password"].encode(), bcrypt.gensalt())
-            print(str(hashed_pw))
-            user = User.objects.create(
-                first_name = form_data["first_name"],
-                last_name = form_data["last_name"],
-                email = form_data["email"].lower(),
-                password = hashed_pw
-            )
-            return (True, user)
-        else:
-            return (False, errors)
-
-    def login(self, form_data):
-
-        errors = []
-
-        if len(form_data["email"]) < 1:
-            errors.append("Email is required")
-        elif not EMAIL_REGEX.match(form_data["email"]):
-            errors.append("Invalid Email")
-        else:
-            if len(User.objects.filter(email=form_data["email"].lower())) < 1:
-                errors.append("Unknown email {}".format(form_data["email"]))
-
-        if len(form_data["password"]) < 1:
-            errors.append("Password is required")
-        elif len(form_data["password"]) < 8:
-            errors.append("Password must be 8 letters or longer")
+from django.utils import timezone
 
 
-        # print(hashed_pw)
+class Post(models.Model):
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, primary_key=True,)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
 
-        if len(errors) > 0:
-            return (False, errors)
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
 
-        user = User.objects.filter(email=form_data["email"].lower())[0]
-        hashed_pw = user.password.split("'")[1]
+    def approve_comments(self):
+        return self.comments.filter(approved_comment=True)
 
-        if bcrypt.checkpw(form_data["password"].encode(), hashed_pw.encode()):
-            return (True, user)
-        else:
-            errors.append("Incorrect Password")
-            return (False, errors)
+    def get_absolute_url(self):
+        return reverse("post_detail",kwargs={'pk':self.pk})
 
-class User(models.Model):
-    first_name = models.CharField(max_length = 255)
-    last_name = models.CharField(max_length = 255)
-    email = models.CharField(max_length = 255)
-    password = models.CharField(max_length = 255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
-    objects = UserManager()
+    def __str__(self):
+        return self.title
 
+
+
+class Comment(models.Model):
+    post = models.ForeignKey('blog.Post', related_name='comments', on_delete=models.CASCADE, primary_key=True,)
+    author = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def get_absolute_url(self):
+        return reverse("post_list")
+
+    def __str__(self):
+        return self.text

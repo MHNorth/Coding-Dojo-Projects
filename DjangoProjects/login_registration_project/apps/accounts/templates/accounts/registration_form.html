@@ -12,33 +12,34 @@
 
 
 <div class="container">
-                <h3 class="h3 mb-3 font-weight-normal">Welcome to Social!</h3>
-                <div class="box">
-                <h5 class="h5 mb-3 font-weight-normal">Registration Form</h5>
-                    <form action="regcomplete" method="POST">
+        <div class="h3 mb-3 font-weight-normal flex-center">
+                <h3 class="h3 mb-3 font-weight-normal">Welcome to My Registration Page!</h3>
+                <div class="jumbotron-reg teal lighten-3 ">
+                <h5 class="h4 mb-3 font-weight-normal">Registration Form</h5>
+                    <form action="register" method="POST">
                         {% csrf_token %}
                         <input class="form-control" type="text" name="full_name" placeholder="First and Last Name:">
                         <input class="form-control" type="text" name="alias" placeholder="Alias:">
                         <input class="form-control" type="text" name="email" placeholder="Email:">
                         <input class="form-control" type="password" name="password" placeholder="Password:">
-                        <input class="form-control" type="password" name="password" placeholder="Confirm PW:">
+                        <input class="form-control" type="password" name="rec_password" placeholder="Confirm PW:">
                         <label class="form-inline text-secondary">Date of Birth:</label>
-                        <div class="alignmydate"><input class="form-control" type="date" name="date" placeholder="Date of Birth:"><i class="small material-icons">date_range</i></div>
+                        <div class="alignmydate"><input class="form-control" type="date" name="b-date" placeholder="Date of Birth:"><i class="small material-icons">date_range</i></div>
                         <input class="btn-small waves-effect red lighten-1 z-depth-3"  type="submit" value="register">
                     </form>
-                </div>            
+                </div>  
+        </div>          
         
                 {% if messages %}
                     <ul class="messages">
                         {% for message in messages %}
-                            <li> {% if message.tags %} class="{{ message.tags }}"
-                                    {% endif %} 
+                            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
                                     {{ message }}
                             </li>
                         {% endfor %}
                     </ul>
-                {% endif %}
-</div>
+                {% endif %} 
+        </div>
 
 {% endblock %}
 

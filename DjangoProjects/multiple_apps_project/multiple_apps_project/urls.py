@@ -22,11 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.social.urls')),
     path('accounts/', include('apps.accounts.urls')),
-    path('rest/', include('apps.semirestful.urls')),
-    path('courses/', include('apps.courses.urls')),
-    path('shop/', include('apps.amadon.urls')),
-    path('wall/', include('apps.wall.urls')),
-    path('dashboard/', include('apps.dashboard.urls')),
     path('search/', include('apps.ajaxsearch.urls')),
 
 ]

@@ -1,0 +1,34 @@
+{% extends 'semirestful/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Semi-Restful Users
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+                <div class="card-panel teal lighten-3">               
+                        <div class="flex-container">
+                            <span class="h2 mb-3 font-weight-normal">User 1</span>  
+                        </div>
+                <div>
+                                <div class="flex-container">
+                                        <span class="h5 mb-3 font-weight-normal">Full Name:    <b>Jimmy Jun</b></span>
+                                        <span class="h5 mb-3 font-weight-normal">Email:    <b>jjun@gmail.com</b></span> 
+                                        <span class="h5 mb-3 font-weight-normal">Created at:    <b>June 15th, 2015</b></span>   
+                                </div>
+
+
+                        <a href="{% url 'useredit' %}"><span class="h6 mb-3 font-weight-normal">Edit</span></a>  |  <a href=""><span class="h6 mb-3 font-weight-normal">Delete</span></a>  |  <a href="{% url 'userhome' %}"><span class="h6 mb-3 font-weight-normal">Go Back</span></a>   
+                </div>  
+                </div>
+
+
+                </div>
+</div>
+
+{% endblock %}

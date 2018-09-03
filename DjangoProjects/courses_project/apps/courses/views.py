@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Course
+from .models import Course, CourseDesc
+from django.contrib import messages
 
 
 
@@ -12,9 +13,11 @@ def CourseHome(request):
                 }
         return render(request, 'courses/coursehome.html', context)  
 
+
+
 def CourseAdd(request):
-        
-        addC = Course.objects.addCourse(
+        if request.POST:
+                Course.objects.addCourse(
                 request.POST["course"],
                 request.POST["description"],
                 )
@@ -22,11 +25,16 @@ def CourseAdd(request):
         return redirect('coursehome')
 
 
+
 def RemoveCourseRequest(request):
-        return render(request, 'courses/removecourse.html') 
+        context = {
+                'course': Course.objects.get(id=id)
+        }
+        return render(request, 'courses/removecourse.html', context) 
 
-def RemoveCourse(request, id):
 
+def RemoveCourse(request, course_id):
+        
         Course.objects.get(id=id).delete()   
 
         return redirect('coursehome')

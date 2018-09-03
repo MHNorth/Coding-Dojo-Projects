@@ -23,6 +23,8 @@
                 .sred {color: red;}
                 .sgreen {color: green;}
                 .sblue {color: blue;}
+                .jumbotron-reg {width:350px; height:500px; padding: 30px; border-radius: 10px;}
+                .jumbotron-log {width:350px; height:350px; padding: 30px; border-radius: 10px;}
                 .container {width: 100%; margin: 0 auto; padding: 100px;}
                 .container1 {width: 1400px; margin: 0 auto;}
                 .box {margin-right: 10px; width: 350px; height: 500px; border: 1px solid gray; display: inline-block; vertical-align: top; padding: 50px; border-radius: 10px;}
@@ -42,6 +44,7 @@
                 .rword {margin-top:12px;}
                 .alignmydate {display:flex; align-items:center}
                 .vl {border-left: 2px solid #ef5350; height: 500px;}
+                .flex-center {display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-content: center; align-items: center;}
                 .flex-container2 {display: flex; flex-direction: column; align-items: flex-end;}
                 .flex-container3 {display: flex; flex-direction: column; align-items: center;}
                 .flex-container4 {display: flex; flex-direction: row; align-items: left;}
@@ -51,9 +54,6 @@
                 .scrolltext {overflow: auto; width:700px; height:100px;}
                 .scroll-box {overflow-y: scroll; height: 380px; padding: 1rem}
                 .input-field input[type=text] { border: None; box-shadow: None;}
-        
-
-                  
                   
         </style>
 
@@ -65,10 +65,14 @@
             <header>
                     <nav>
                         <div class="nav-wrapper">
-                            <ul class="right hide-on-med-and-down">                        
-                                <li><a href="{% url 'register' %}" class="waves-effect teal lighten-2 btn z-depth-3">Register<i class="material-icons right">people_outline</i></a></li>
+                            <ul class="right hide-on-med-and-down">                     
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'dash' %}" class="waves-effect teal lighten-2 btn z-depth-3">Dashboard<i class="material-icons right">people_outline</i></a></li>
+                                <li><a href="{% url 'logout' %}" class="waves-effect teal lighten-2 btn z-depth-3">Logout<i class="material-icons right">people_outline</i></a></li>
+                                {% else %}
+                                <li><a href="{% url 'home' %}" class="waves-effect teal lighten-2 btn z-depth-3">Home<i class="material-icons right">people_outline</i></a></li>
                                 <li><a href="{% url 'login' %}" class="waves-effect teal lighten-2 btn z-depth-3">Login<i class="material-icons right">people_outline</i></a></li>
-                               
+                                {% endif %}
                             </ul>
                         </div>
                     </nav>

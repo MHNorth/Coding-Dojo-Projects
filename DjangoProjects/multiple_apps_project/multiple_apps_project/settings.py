@@ -34,11 +34,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'apps.accounts',
     'apps.social',
-    'apps.semirestful',
-    'apps.courses',
-    'apps.amadon',
-    'apps.wall',
-    'apps.dashboard',
     'apps.ajaxsearch',
     'crispy_forms',
     'django.contrib.admin',

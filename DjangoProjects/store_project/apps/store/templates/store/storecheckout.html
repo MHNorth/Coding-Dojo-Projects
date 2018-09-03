@@ -1,0 +1,31 @@
+{% extends 'store/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Amadon Store
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+                <div class="card-panel teal lighten-3">               
+                        <div class="flex-container">
+                            <span class="h4 mb-3 font-weight-normal">Thank you for your business!</span>  
+                        </div>
+                        <div>
+                            <span class="h5 mb-3 font-weight-normal">We charged your credit card $19.99.</span><p></p> 
+                            <span class="h5 mb-3 font-weight-normal">You ordered 19 items so far and spent $249.99 with Amadon.com!</span><br> 
+                            
+                        </div>
+                        <p></p>
+                        <button class="btn waves-effect red lighten-2 z-depth-3"><a href="{% url 'home' %}"><b>Go Back</b></a></button> 
+
+                </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,51 +1,46 @@
 from django.db import models
 
-class Category(models.Model):
-    name = models.CharField(max_length=200, unique=True)
-    bldurl = models.SlugField(max_length=150, unique=True ,db_index=True)     #Build SEO friendly url's
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+##---------- Amadon Model ----------##
+class ProductCategory(models.Model):
+    """
+    Model representing the product categories 
+    listed as a dropdown menu
 
+    """
     class Meta:
-        ordering = ('name',)
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
+        verbose_name_plural = "Categories"
+
+
+    amadon_categories = (
+        ('Beauty and Spa', 'Beauty and Spa'),
+        ('Soundtrack Music', 'Soundtrack Music'),
+        ('Women\'s Clothing', 'Women\'s Clothing'),
+        )
+
+    categoryList = models.CharField(
+        max_length=100,
+        choices = amadon_categories,
+        default = "Beauty and Spa",
+        )
     
     def __str__(self):
-        return self.name
-
+        return self.categoryList
+    
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, db_index=True)
-    bldurl = models.SlugField(max_length=150, unique=True ,db_index=True)
-    description = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    available = models.BooleanField(default=True)
-    stock = models.PositiveIntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)  #holds image of product
- 
-    class Meta:
-        ordering = ('name', )
-        index_together = (('id',),)
- 
+    """
+    Model representing product category, 
+    name, description and price
+    """
+    category = models.ForeignKey(
+        ProductCategory,
+        on_delete=models.CASCADE, 
+        )
+    productName = models.CharField(max_length = 100)
+    description = models.TextField(max_length = 300, blank=True, null = True)
+    price = models.DecimalField(decimal_places=2, max_digits=1000)
+    quantity = models.PositiveIntegerField()
+    
     def __str__(self):
-        return self.name
+        return "{} | {} | {} | {}...".format(self.category, self.productName, self.price, self.description[:25])
 
-class Customers(models.Model):
-    first_name = models.CharField(max_length=100, db_index=True)
-    last_name = models.CharField(max_length=100, db_index=True)
-    address = models.CharField(max_length=100, db_index=True)
-    city = models.CharField(max_length=100, db_index=True)
-    state = models.CharField(max_length=100, db_index=True)
-    zip = models.IntegerField()
-    email = models.EmailField(max_length=264, unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-
-class AccessRecord(models.Model):
-    name = models.ForeignKey(Customers, on_delete=models.CASCADE)
-    date = models.DateTimeField(auto_now_add=True)

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A Web Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            padding: 100px;
+        }
+        .box {
+            margin-right: 20px;
+            width: 370px;
+            height: 500px;
+            border: 1px solid gray;
+            display: inline-block;
+            vertical-align: top;
+            padding: 50px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="h1 mb-3 font-weight-normal">Welcome to Trip Buddy</h1><br>
+        <div class="box">
+            <h3 class="h3 mb-3 font-weight-normal">Register</h3>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <input class="form-control" type="text" name="first_name" placeholder="First Name"><br>
+                <input class="form-control" type="text" name="last_name" placeholder="Last Name"><br>
+                <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                <input class="form-control" type="password" name="password" placeholder="Password"><br>
+                <input class="form-control" type="password" name="confirm" placeholder="Confirm Password"><br>
+                <input class="btn btn-lg btn-primary" type="submit" value="Register">
+            </form>
+        </div>
+        <div class="box">
+            <h3 class="h3 mb-3 font-weight-normal">Login</h3>
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                <input class="form-control" type="password" name="password" placeholder="Password"><br>
+                <input class="btn btn-lg btn-primary" type="submit" value="Login">
+            </form>
+        </div>
+    
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

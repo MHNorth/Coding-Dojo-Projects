@@ -1,0 +1,121 @@
+{% extends 'store/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Store
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+        <div class="card-panel teal lighten-3">               
+                <div class="flex-container">
+                        <span class="h2 mb-3 font-weight-normal">Store Project</span>  
+                </div>
+                <div class="flex-container4">
+                                <p></p>
+                                <span class="h5 mb-3 font-weight-normal"><b>Welcome Back, {{ request.user }}!</b></span> 
+                                <p></p>
+                                <button class="btn waves-effect red lighten-2 z-depth-3"><a href="{% url 'checkout' %}"><b>There are {{ session.cart | length }} items in your cart!</b></a></button> 
+                                <p></p>
+                </div>
+                <p></p>
+   
+                <table class="table">
+                        <thead class="red lighten-2 z-depth-1">
+                                <tr>
+                                        <th scope="col">Category:</th>
+                                        <th scope="col">Product:</th>
+                                        <th scope="col">Price:</th>
+                                        <th scope="col">Quantity:</th>
+                                        <th scope="col">Actions:</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <form method="POST" action="buy">
+                                {% csrf_token %} 
+                                        {% for item in catlist %}              
+                                        <tr>                                                                                         
+                                                <td> 
+                                                        <select size="1" class="custom-select custom-select w-75"> 
+                                                                <option>{{ item }}</option>                                               
+                                                        </select>                                        
+                                                </td>
+                                                <td>    
+                                                        <select size="1" class="custom-select mb-2 w-75">
+                                                                {% for prods in item.product_set.all %}  
+                                                                <option>{{ prods.productName }}</option>   
+                                                                {% endfor %}                                                                                  
+                                                        </select>
+                                                       
+                                                
+                                                </td>
+                                                <td>    
+                                                          
+                                                        <select size="1" class="custom-select mb-2">
+                                                                {% for cost in item.product_set.all %}
+                                                                <option>{{ cost.price }}</option>
+                                                                {% endfor %}                                     
+                                                        </select>
+                                                                                               
+                                                </td>
+                                                
+                                                <td>                          
+                                                        <select name="numitems" size="1" class="custom-select mb-2 w-50">
+                                                
+                                                                <option value="1"></option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="5">8</option>
+                                                                <option value="6">9</option>
+                                                                <option value="7">10</option>
+                                                                
+                                                        </select> 
+                                                          
+                                                
+                                                </td>
+                                                <td>                                     
+                                                        <input type="submit" value="BUY!" class="btn waves-effect red lighten-2 z-depth-3">
+                                                        <p></p>                                                     
+                                                      
+                                                </td>                                       
+                                   
+                                        </tr>
+                                        {% endfor %} 
+                                </form> 
+                                
+                              
+  
+                        </tbody>
+                </table>
+
+                {% comment %} {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-success alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{ message }}
+                                </div>
+                                {% endfor %}
+                        {% endif %}
+                {% endwith %} {% endcomment %}
+    
+        </div>
+      
+
+                     
+
+</div>
+
+
+
+
+{% endblock %}

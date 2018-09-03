@@ -1,5 +1,16 @@
-from django.shortcuts import render
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
+from .models import Post
 
-def index(request):
-    return render(request, "wall/index.html")
+
+
+
+def WallHome(request):
+        allposts = Post.objects.all()
+        context = {
+                'allposts': allposts,
+        }
+        return render(request, 'wall/wallhome.html', context)   
+
+
+
+

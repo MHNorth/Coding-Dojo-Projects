@@ -11,42 +11,42 @@
 {% block content %}
 
 <div class="container">
-                <div class="card-panel teal lighten-3">               
+                <div class="card-panel light-green lighten-2">               
                         <div class="flex-container">
                             <span class="h2 mb-3 font-weight-normal">Courses Project</span>  
                         </div>
 
                         <div>
-                            <span class="h5 mb-3 font-weight-normal">Add a new course</span>  
+                            <span class="h5 mb-3 font-weight-normal"><b>Add a new course</b></span>  
                         </div>
 
                         <form action="courseadd" method="POST" class="col s12">
                             {% csrf_token %}
                             <div class="input-field col s6">
                                     <i class="material-icons prefix">account_circle</i>
-                                    <label for="icon_prefix">Name:</label>&nbsp;&nbsp;
+                                    <label for="icon_prefix"><b>Name:</b></label>&nbsp;&nbsp;
                                     <input id="icon_prefix" type="text" class="validate" name="course">
                                     
                             </div>
                         
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">description</i>
-                                <label for="textarea1">Description:</label>&nbsp;&nbsp;
+                                <label for="textarea1"><b>Description:</b></label>&nbsp;&nbsp;
                                 <input id="textarea1" type="text" class="validate" name="description">
                             </div>
                           
-                            <button class="btn-small waves-effect red lighten-2 z-depth-3">Add</button>  
+                            <button class="btn-small waves-effect brown darken-4 z-depth-3">Add</button>  
                         </form>
                         <p></p>
                         <hr>
                         
                 <div>
                     <div>
-                        <span class="h5 mb-3 font-weight-normal">Courses</span>  
+                        <span class="h5 mb-3 font-weight-normal"><b>Courses</b></span>  
                     </div>
                         <table class="table">
-                                        <thead class="red lighten-2">
-                                          <tr>
+                                        <thead class="brown darken-4">
+                                          <tr class="clred ">
                                             <th scope="col">Course Name</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Date Added</th>
@@ -59,7 +59,7 @@
                                             {% for item in allcourses %}
                                           <tr>
                                             <td>{{ item.courseName }}</td>
-                                            <td>{{ item.description }}</td>
+                                            <td>{{ item.courseDescription }}</td>
                                             <td>{{ item.dateAdded }}</td>
                                             <td><a href="{% url 'courseremoverequest' %}">remove</a></td>
                                             {% endfor %}

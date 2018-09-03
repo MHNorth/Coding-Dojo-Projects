@@ -1,0 +1,42 @@
+{% extends 'dashboard/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Login     
+        {% endblock title %}
+</title>
+        
+        
+{% block content %}
+
+
+<div class="container">
+
+        <div class="h3 mb-3 font-weight-normal flex-center">
+            <h5 class="h3 mb-3 font-weight-normal">Welcome!</h5>
+            <div class="jumbotron-log teal lighten-3 ">
+            <h5 class="h4 mb-3 font-weight-normal">Signin.</h5>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                <input class="form-control" type="password" name="password" placeholder="Password">
+                <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" value="login">
+            </form>
+            </div> 
+        </div>   
+                
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                    {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+        
+
+</div>
+
+{% endblock %}

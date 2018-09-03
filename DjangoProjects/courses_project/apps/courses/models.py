@@ -17,15 +17,15 @@ class CourseManager(models.Manager):
         if len(errors) > 0:
             return {"valid": False, "errors": errors}
         else:
-            Course.objects.create(courseName = courseName, description=description)
-            return {"valid": False, "errors": errors}
+            add_c = Course.objects.create(courseName = courseName, description= description)
+            return (True, add_c)
 
 
 class CourseDesc(models.Model):
     description = models.CharField(max_length=500)
     objects = CourseManager()
 
-    def __repr__(self):
+    def __obj__(self):
         return "Course Description: {}".format(self.description[0:25])
         
 
@@ -36,7 +36,7 @@ class Course(models.Model):
     dateAdded = models.DateField(auto_now_add=True)
     objects = CourseManager()
 
-    def __repr__(self):
+    def __obj__(self):
         return "Course Name: {}".format(self.courseName)
 
 

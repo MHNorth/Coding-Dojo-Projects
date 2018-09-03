@@ -1,0 +1,68 @@
+{% extends 'dashboard/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  User Home
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron teal lighten-3">               
+            <div class="flex-container">
+                <span class="h2 mb-3 font-weight-normal">Welcome to the Admin-User Dashboard App</span> 
+                
+            </div> 
+            <div class="flex-container">
+                <span class="h5 mb-3 font-weight-normal">We're going to build a cool application using an MVC framework!</span>
+                <span class="h5 mb-3 font-weight-normal">This application was built with the Village88 folks!</span>  
+                <p></p>
+                <a href="{% url 'registerhome' %}"><button class="btn-floating btn-large pulse waves-effect red lighten-2 z-depth-3">Start</button></a>                         
+            </div> 
+            <p></p>
+            <p></p>
+            <hr>
+
+            <div class="row">
+
+                        <div class="col s4 flex-container3">
+                                <span class="h5 mb-3 font-weight-normal"><b>Manage Users</b></span>
+                                <p class="h6 mb-3 font-weight-normal">
+                                        Using this application, you'll
+                                        learn how to add, remove, and 
+                                        edit users for the application.
+
+                                </p> 
+                        </div>
+                        <div class="col s4 flex-container3">
+                                <span class="h5 mb-3 font-weight-normal"><b>Leave Messages</b></span>
+                                <p class="h6 mb-3 font-weight-normal">
+                                        Users will be able to leave a 
+                                        message to another user using
+                                        this application.
+        
+                                </p> 
+                        </div>
+                        <div class="col s4 flex-container3">
+                                <span class="h5 mb-3 font-weight-normal"><b>Edit User Information</b></span>
+                                <p class="h6 mb-3 font-weight-normal">
+                                        Admins will be able to edit another
+                                        user's information (email address,
+                                        first name, last name, etc.)
+        
+                                </p> 
+                        </div>
+
+                </div>
+            
+            
+        </div>
+
+
+
+</div>
+
+{% endblock %}

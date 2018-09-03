@@ -1,0 +1,81 @@
+{% extends 'dashboard/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Admin Manage Users
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+        <div class="alignadmin">
+                <a href="{% url 'dashhome' %}"><button class="btn-small waves-effect red lighten-2 z-depth-3">Return to Dashboard</button></a>
+        </div>
+        <br>
+                <div class="card-panel teal lighten-3">               
+                                <div class="flex-container">
+                                        <span class="h2 mb-3 font-weight-normal">Manage Users</span>
+                                        <a href="{% url 'dashnew' %}"><button class="btn-small waves-effect red lighten-2 z-depth-3">Add New</button></a>   
+                                </div>
+                                <p></p>
+                                <table class="table">
+                                        <thead class="red lighten-2 z-depth-1">
+                                                <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Created At</th>
+                                                <th scope="col">User Level</th>
+                                                <th scope="col">Actions</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                <td>{{ user.id }}</td>
+                                                <td><span>{{ user.first_name}}</span>&nbsp;<span>{{ user.last_name }}</span></td>
+                                                <td>{{ user.email }}</td>
+                                                <td>{{ user.created_at }}</td>
+                                                <td>{{ user.user_level }}</td>
+                                                <td>
+                                                        <div class="admin-align">
+                                                                <a href="{% url 'dashedit' %}" class="admin-align">
+                                                                        <button class="btn-small waves-effect red lighten-2 z-depth-3">Edit</button>
+                                                                </a> 
+
+                                                                <form action="" method="POST" class="admin-align"> 
+                                                                {% csrf_token %}                     
+                                                                <button data-target="modal1" class="btn-small waves-effect red lighten-2 z-depth-3 modal-trigger">Remove</button>
+
+                                                                        <div id="modal1" class="modal modal-admin modal-content card-panel teal lighten-3">
+                                                                                <h4>Remove User from Dashboard</h4>                                   
+                                                                                <p>Selecting this option will permanently delete the user from the company database.</p>
+                                                                                <b><p>Are you sure you want to remove the user?</p></b>
+                                                                                
+                                                                                <label class="salmonc">
+                                                                                        <input type="checkbox" name="remove-user"/>
+                                                                                        <span>Yes, Remove the User</span>
+                                                                                </label>&nbsp;&nbsp;
+                                                                                <label class="salmonc">
+                                                                                        <input type="checkbox" name="user-stays"/>
+                                                                                        <span>No, Return to Dashboard</span>
+                                                                                </label>                                                                             
+                                                                        
+                                                                        </div>
+                                                                </form>
+                                                        
+                                                        </div>
+                                                </td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                    
+                        </div>
+                      
+
+
+
+</div>
+{% endblock %}

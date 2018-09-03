@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <style>
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-control {
+            display: block;
+            width: 30%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-heavy">Welcome {{ request.session.first_name }}!</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2" href="/add_trip">Add A Job</a>
+            <a class="p-2" href="/logout">Logout</a>
+        </nav>
+    </div>
+    <h3 class="h3 mb-3 font-weight-heavy">Your Trip Schedules</h3>
+    <table class="table table-striped">
+        <tr>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Plan</th>
+            <th>Action</th>
+        </tr>
+        {% for join in joined_trips %}
+        <tr>
+            <td><a href="/trip/{{join.trip.id}}">{{ join.trip.destination }}</a></td>
+            <td>{{ join.trip.startdate.date }}</td>
+            <td>{{ join.trip.enddate.date }}</td>
+            <td>{{ join.trip.description }}</td>
+            <td>
+                <a href="/leave/{{join.trip.id}}">[Leave]</a>
+                {% if join.trip.seller.id == request.session.user_id %}
+                    <a href="/delete/{{join.trip.id}}">[Delete]</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        <!-- <tr>
+            <td>Nashville, Tennessee</td>
+            <td>May 26 2019</td>
+            <td>May 29 2019</td>
+            <td>Go to Wrestle Mania</td>
+            <td>[Cancel] [Delete]</td>
+        </tr> -->
+    </table>
+
+    <hr>
+
+    <h3 class="h3 mb-3 font-weight-heavy">Other User's Travel Plans</h3>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Do You Want to Join?</th>
+        </tr>
+        {% for trip in all_trips %}
+        <tr>
+            <td><a href="/trip/{{trip.id}}">{{ trip.destination }}</a></td>
+            <td>{{ trip.startdate.date }}</td>
+            <td>{{ trip.enddate.date }}</td>
+            <td><a href="/join/{{trip.id}}">[Join]</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'wall/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Wall
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+        <div class="card-panel teal lighten-3">               
+                <div class="flex-container">
+                        <span class="h2 mb-3 font-weight-normal">Wall Project</span>  
+                </div>
+
+                <div>
+                        <form method="POST">
+                                {% csrf_token %}
+                                <span class="h4 mb-3 font-weight-normal">Post a message:</span> 
+                                <textarea class="form-control" rows="10" ></textarea>
+                                <p></p>
+                                <input class="btn-small waves-effect red lighten-2 z-depth-3" type="submit" value="Post a message"> 
+                        </form>
+                </div>
+                <p></p>
+
+                <div class="box3">
+                        {% for post in allposts %} 
+                                
+                        <div>
+                                {% for p in post.display_set.all %}
+                                <span class="h5 mb-5 font-weight-normal">{{ p }}</span><br><br>
+                                {% endfor %}
+                        </div>
+                        
+                        {% endfor %}
+                </div>
+        </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'semirestful/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Semi-Restful Users
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+                <div class="card-panel teal lighten-3">               
+                        <div class="flex-container">
+                            <span class="h2 mb-3 font-weight-normal">Semi-Restful Users</span>  
+                        </div>
+                <div>
+                        <span class="h3 mb-3 font-weight-normal">Users</span> 
+                        <table class="table">
+                                        <thead class="red lighten-2">
+                                          <tr>
+                                            <th scope="col">id</th>
+                                            <th scope="col">Full Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Created At</th>
+                                            <th scope="col">Actions</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>1</td>
+                                            <td><a href="{% url 'usershow' %}">Jimmy Jun</a></td>
+                                            <td>jjun@gmail.com</td>
+                                            <td>June 15th, 2015</td>
+                                            <td><a href="{% url 'usershow' %}">Show</a> <a href="{% url 'useredit' %}">Edit</a> <a href="">Delete</a></td>
+                                          </tr>
+                                        </tbody>
+                        </table>
+                        <a href="{% url 'useradd' %}"><button class="btn-small waves-effect red lighten-2 z-depth-3">Add User</button></a>  
+                </div>
+
+
+                </div>
+</div>
+
+{% endblock %}
+
