@@ -37,6 +37,13 @@
                           
                             <button class="btn-small waves-effect brown darken-4 z-depth-3">Add</button>  
                         </form>
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                         <p></p>
                         <hr>
                         
@@ -55,12 +62,13 @@
                                         </thead>
                                         <form action="courseadd" method="POST" class="col s12">
                                         {% csrf_token %}
+
                                         <tbody>
-                                            {% for item in allcourses %}
+                                            {% for entry in allcourses %}
                                           <tr>
-                                            <td>{{ item.courseName }}</td>
-                                            <td>{{ item.courseDescription }}</td>
-                                            <td>{{ item.dateAdded }}</td>
+                                            <td>{{ entry.courseName }}</td>
+                                            <td>{{ entry.courseDetail }}</td>
+                                            <td>{{ entry.dateAdded }}</td>
                                             <td><a href="{% url 'courseremoverequest' %}">remove</a></td>
                                             {% endfor %}
                                           </tr>

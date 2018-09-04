@@ -1,41 +1,35 @@
 from django.shortcuts import render, redirect
-from .models import Course, CourseDesc
+from .models import Course
 from django.contrib import messages
 
 
 
-allcourses = Course.objects.all()
 
 def CourseHome(request):
-        if request.session:
-                context = {
-                        'allcourses': allcourses,
-                }
-        return render(request, 'courses/coursehome.html', context)  
-
+        return render(request, 'courses/coursehome.html')  
 
 
 def CourseAdd(request):
-        if request.POST:
-                Course.objects.addCourse(
-                request.POST["course"],
-                request.POST["description"],
-                )
-
-        return redirect('coursehome')
-
+        if request.session == "POST":
+                allcourses= Course.objects.all()
+                results = Course.objects.ValidCourse(request.POST)
+                if not results[0]:
+                        for error_message in results[1]:
+                                messages.add_message(request, messages.ERROR,error_message)
+                        return redirect('coursehome')
+                else:
+                        return redirect('coursehome')
 
 
 def RemoveCourseRequest(request):
-        context = {
-                'course': Course.objects.get(id=id)
-        }
-        return render(request, 'courses/removecourse.html', context) 
+        
+        return render(request, 'courses/removecourse.html') 
+
 
 
 def RemoveCourse(request, course_id):
         
-        Course.objects.get(id=id).delete()   
+        Course.objects.get(id=course_id).delete()   
 
         return redirect('coursehome')
 

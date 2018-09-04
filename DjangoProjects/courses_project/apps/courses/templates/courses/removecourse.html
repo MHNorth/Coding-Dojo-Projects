@@ -16,15 +16,18 @@
                         <span class="h4 mb-3 font-weight-normal"><b>Are you sure you want to delete the following course?</b></span>  
                     </div>
                     <p></p>
+                    <form action="courseremove/{{ entry.course_id }}" class="flex-container8">   
+                    {% csrf_token %} 
+                   
                     <div class="row">
                             <div class="col2">
-                                <span class="h5 mb-3 font-weight-normal"><b>Course Name:</b></span><p></p> 
-                                <p>{{ item.courseName }}</p> 
+                                <span class="h5 mb-3 font-weight-normal"><b>Course Name:</b></span><p></p>                                 
+                                <p>{{ entry.goodriddens.courseName }}</p> 
                             </div>
                             <p></p>
                             <div class="col2">
                                 <span class="h5 mb-3 font-weight-normal"><b>Course Description:</b></span><p></p> 
-                                <p>{{ item.courseDescription }}</p> 
+                                <p>{{ entry.goodriddens.courseDetail }}</p> 
                             </div>
                             <p></p>
                         
@@ -33,11 +36,10 @@
                         <div class="flex-course row">                          
                             <a href="{% url 'coursehome' %}"><button class="btn-small waves-effect brown darken-4 z-depth-3">No</button></a>&nbsp;&nbsp;                           
                           
-                            <form action="courseremove/{{course.id}}" class="flex-container8">
-                            {% csrf_token %} 
-                                <button class="btn-small waves-effect red accent-4 z-depth-3">Yes!  I want to delete this course</button>
-                            </form><p></p>                
+                                <button type="submit" class="btn-small waves-effect red accent-4 z-depth-3">Yes!  I want to delete this course</button>
+                            <p></p>                
                         </div>
+                        </form>
 
                         
 
