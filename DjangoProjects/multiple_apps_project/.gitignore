@@ -1,0 +1,44 @@
+.DS_Store
+Thumbs.db
+
+
+### Django ###
+*.log
+*.pot
+*.pyc
+multiple_apps_project/settings.py
+multiple_apps_project/__pycache__/
+.env
+/db.sqlite3
+media/
+
+
+## Social App ##
+apps/social/models.py
+apps/social/views.py
+apps/social/__pycache__/
+
+## Ajax Demos App ##
+apps/ajaxdemos/models.py
+apps/ajaxdemos/views.py
+apps/ajaxdemos/__pycache__/
+
+## Ajax Pagination App ##
+apps/ajaxpagination/models.py
+apps/ajaxpagination/views.py
+apps/ajaxpagination/__pycache__/
+
+## Ajax Search App ##
+apps/ajaxsearch/models.py
+apps/ajaxsearch/views.py
+apps/ajaxsearch/__pycache__/
+
+## Cool Apis App ##
+apps/coolapis/models.py
+apps/coolapis/views.py
+apps/coolapis/__pycache__/
+
+## iTunes App ##
+apps/itunes/models.py
+apps/itunes/views.py
+apps/itunes/__pycache__/
