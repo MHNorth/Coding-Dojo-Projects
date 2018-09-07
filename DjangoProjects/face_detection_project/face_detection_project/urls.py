@@ -1,4 +1,4 @@
-"""multiple_apps_project URL Configuration
+"""facedetection URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -13,18 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
-from django.conf import settings
-from django.conf.urls.static import static
-
-
+import face_detector
+from face_detector import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('apps.social.urls')),
-    path('accounts/', include('apps.accounts.urls')),
+    path('face_detection/detect/', views.requested_url),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

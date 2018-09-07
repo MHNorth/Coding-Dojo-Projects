@@ -23,6 +23,7 @@
                 .sred {color: red;}
                 .sgreen {color: green;}
                 .sblue {color: blue;}
+                .hr {color:#ef5350;}
                 .container {width: 100%; margin: 0 auto; padding: 100px;}
                 .container1 {width: 1400px; margin: 0 auto;}
                 .box {margin-right: 10px; width: 350px; height: 500px; border: 1px solid gray; display: inline-block; vertical-align: top; padding: 50px; border-radius: 10px;}
@@ -89,6 +90,86 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        var csrf_token ="{{ csrf_token }}";
+        let uploadImageButton = document
+            .getElementById('upload_image_button');
+
+        let uploadImageErrors = document
+            .getElementById('upload_image_errors');
+
+        let imageSelect = document.getElementById('id_image');
+
+        let fileInput = document
+            .getElementById('hidden_image_upload');
+        
+        let imagePreview = document.getElementById('image_preview');
+
+        let addThumbnail = (data) => {
+            if (data.error){
+                uploadImageErrors.innerHTML = data.error;
+            }
+            else {
+                // if the 'from_initial_data' flag is not flipped, we need
+                // to add it to the hidden select option.
+                if (!data.from_initial_data){
+                    imageSelect.innerHTML = 
+                    <option value = "${data.id}" selected>
+                        ${data.image}
+                    </option>;
+                }
+            }
+            uploadImageErrors.innerHTML = '';
+            imagePreview.innerHTML = 
+                <div class="image_thumbnail"
+                    style="background-image: url(${data.image})">
+                    <div id="image_delete">[&times;]</div>                    
+                </div>;
+
+            //stash this in services.js or elsewhere
+        let handleFileUpload = (e, callback) => {
+            let myImage = e.target.files[0];
+            let formData = new FormData();
+            formData.append("image", myImage);
+            let myHeaders = new Headers();
+            myHeaders.append('X-CSRFToken', window.csrf_token);
+            let myInit = {
+                method: 'POST', credentials: 'same-origin',
+                headers: myHeaders, body: formData
+                }
+            let request = new Request('/related_images/', myInit);
+    
+            fetch(request)
+            .then(response => response.json())
+            .then(json => {
+                if (typeof(json['image']) == 'object') {
+                    callback({'error': json['image'][0]});
+                } 
+                else {
+                callback(json);
+                }
+            });
+            };
+        if (uploadImageButton) {
+            fileInput.addEventListener('change', 
+            (e) => handleFileUpload(e, addThumbnail));
+            upload_image_button.addEventListener('click', 
+            () => fileInput.click());
+        let selectedImage = [...imageSelect.selectedOptions];
+        if (selectedImage.length > 0) {
+            addThumbnail({id: selectedImage[0].value, 
+            from_initial_data: true,
+            image: selectedImage[0].innerText})
+            }
+            }
+            }        
+        
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.file-upload').file_upload();
+        });
+    </script>
 
     <footer class="page-footer mybc">
             <div class="nav-wrapper">

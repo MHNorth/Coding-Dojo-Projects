@@ -45,3 +45,30 @@ class Survey(models.Model):
     def __str__(self):
         return "Name: {}, Dojo: {}, Lang: {}".format(self.fullName, self.yourDojo, self.yourLanguage)
 
+
+##----------- Upload Files and Images Model -----------##
+
+
+class UploadFile(models.Model):
+    documentfile = models.FileField(default='default.txt', blank=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.documentfile
+
+class UploadImage(models.Model):
+    imagefile = models.ImageField(default= 'default.png', blank=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.imagefile
+
+
+
+
+
+
+    
+
+
+    

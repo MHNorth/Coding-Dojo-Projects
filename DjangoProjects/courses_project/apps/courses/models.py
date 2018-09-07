@@ -37,7 +37,7 @@ class Course(models.Model):
     objects = CourseManager()
 
     def __str__(self):
-        return "Course Name: {} | Course Description: {}".format(self.courseName, self.description[0:25])
+        return "Course Name: {} | Course Description: {}".format(self.courseName, self.courseDetail[0:25])
 
 
 

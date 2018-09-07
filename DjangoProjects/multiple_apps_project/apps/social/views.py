@@ -1,14 +1,28 @@
-from django.contrib import messages
-from time import localtime, strftime
-from django.shortcuts import render, redirect
+##---------- Imported Modules ----------##
+import os
 import random, datetime
+
+from django.conf import settings
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.core.files.storage import default_storage
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib import messages
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+
+
 from apps.accounts.models import User
-from .models import Word, Survey
+from .models import Word, Survey, UploadFile, UploadImage
+from .forms import ImageUploadForm, FileUploadForm
+from time import localtime, strftime
+
+##----------------------------------------##
 
 
 
 ##---------- Social Views ----------##
-def Home(request, *args, **kwargs): 
+def Home(request): 
         """
         Renders the home.html template which 
         list the current date and local time
@@ -217,19 +231,36 @@ def Results(request, *args, **kwargs):
 
 
 ##---------- Upload Views ----------##
-def Upload(request, *args, **kwargs):
-        # if request.method == 'POST':
-        #         form = UploadFileForm(request.POST, request.FILES)
-        #         if form.is_valid():
-        #                 handle_uploaded_file(request.FILES['file'])
-        #                 return HttpResponseRedirect('/success/url/')
-        # else:
-        #         form = UploadFileForm()
-        return render(request, 'social/upload_file.html', )  #{'form':form}
+
+allfiles= UploadFile.objects.all()
+allimages= UploadImage.objects.all()
+
+def Upload(request):
+        context = {
+                'allfiles': allfiles,
+                'allimages': allimages,
+        }
+
+        return render(request, 'social/upload_file.html', context) 
+
+def Upload_file(request):
+        if request.method == "POST": 
+                messages.success(request, 'Your document file has been successfully uploaded.')    
+                fileform = UploadFile.objects.create(
+                        documentfile = request.POST['ufile']
+                )                
+                return redirect('upload') 
+
+                           
 
 
-
-
+def Upload_image(request):
+        if request.method == "POST":     
+                imageform = UploadImage.objects.create(
+                        imagefile = request.POST['uimage']
+                )
+                messages.success(request, 'Your image file has been successfully uploaded.') 
+                return redirect('upload') 
 
 
 
