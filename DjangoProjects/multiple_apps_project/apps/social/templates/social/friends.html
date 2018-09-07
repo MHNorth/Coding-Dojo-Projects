@@ -1,0 +1,72 @@
+{% extends 'social/base.html' %}
+
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Friend Connect
+        {% endblock title %}
+</title>
+        
+        
+{% block content %}
+
+
+<div class="container">
+        <h1 class="h2 mb-3 font-weight-normal">Welcome to Coding Dojo's Friend Connect Platform!</h1> 
+        <div class="card-panel teal lighten-3">
+                <h3 class="h3 mb-3 font-weight-normal">Hello, {{ User.name }} </h3>
+                <h4 class="h4 mb-3 font-weight-normal">Here is the list of your friends:</h4> 
+                <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Alias</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                {% for friendconnects in user.connections.all %}
+                                <tbody>
+                                  <tr>
+                                    <td>{{ freindconnects.alias }}</td>
+                                    <td><a href="{% url 'detail' %}">View Profile</a></td>
+                                    <td><button type="submit" class="waves-effect teal lighten-1 btn z-depth-3 btn-small" >Remove as Friend</button></td>
+                                  </tr>
+                                </tbody>
+                                {% endfor %}
+                </table>
+                  
+               
+
+        </div>
+
+        <div class="card-panel teal lighten-3">
+                <h4 class="h4 mb-3 font-weight-normal">Other Users not on your friend's list:</h4> 
+                <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Alias</th>
+                                    <th scope="col">Action</th>
+                                  </tr>
+                                </thead>
+                                {% for person in NotConnected %}
+                                <tbody>
+                                  <tr>
+                                    <td><a href="{% url 'detail' %}">{{ User.alias }}</a></td>
+                                    <td><button type="submit" class="waves-effect teal lighten-1 btn z-depth-3 btn-small">Add as Friend</button></td>
+                                  </tr>
+                                </tbody>
+                                {% endfor %}
+                </table> 
+                       
+                       
+        
+        </div>
+                    
+</div>
+
+
+
+{% endblock content %}
+
+
