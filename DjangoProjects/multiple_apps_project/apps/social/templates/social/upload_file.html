@@ -17,40 +17,35 @@
     </div> 
     <div class="card-panel teal lighten-2 flex-container">               
                                        
-        <form method="post" encthype="multipart/form-data">
+        <form method="post" encthype="multipart/form-data" action="#">
         {% csrf_token %}
         <div class="input-field col s6">
           <input class="btn-primary" id="id_file" type="file" name="ufile"><br><br>
-          <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" value="Upload File" />
-        <img src="{{ allfiles.documentfile.url }}" width="250px">
-         
-       
-
-        </div>                        
-        </form>
+          <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" value="Upload Files" /><br><br>
+          {% for fupload in allfile_uploads %}
+          <div class="flex-container4">
+            <p>{{ fupload.documentfile }}</p>&nbsp&nbsp <button class="btn-sm waves-effect red lighten-2 z-depth-2">Remove</button>
+            </div>
+            <br>
+          {% endfor %} 
+        </div>
         <div>
             <hr> 
-        </div>        
-        <form method="post" encthype="multipart/form-data">
-          {% csrf_token %}
-          <div class="input-field col s6">
-            <input class="btn-primary" id="id_image" type="file" name="uimage"><br><br> 
-            <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" value="Upload Image" /> 
-            <img src="{{ allimages.imagefile.url }}" width="250px">
-          </div>                        
-        </form>             
+        </div> 
+        <div class="input-field col s6">
+                <input class="btn-primary" id="id_image" type="file" name="uimage"><br><br> 
+                <input class="btn waves-effect red lighten-2 z-depth-3" type="submit" value="Upload Images" /><br><br>
+                {% for iupload in allimage_uploads %}
+                <div class="flex-container4">
+                    <p>{{ iupload.imagefile }}</p> &nbsp&nbsp <button class="btn-sm waves-effect red lighten-2 z-depth-2">Remove</button>
+                </div>
+                <br>
+                {% endfor %}
+                
+        </div>                        
+        </form>
                                    
     </div>
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                    {{ message }}
-            </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
 
 
 
