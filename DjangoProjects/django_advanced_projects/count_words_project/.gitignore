@@ -1,0 +1,21 @@
+.DS_Store
+Thumbs.db
+
+
+### Django ###
+*.log
+*.pot
+*.pyc
+count_words_project/settings.py
+count_words_project/__pycache__/
+.env
+/db.sqlite3
+media/
+
+
+## Maika Northrop App ##
+apps/count/models.py
+apps/count/views.py
+apps/count/__pycache__/
+
+

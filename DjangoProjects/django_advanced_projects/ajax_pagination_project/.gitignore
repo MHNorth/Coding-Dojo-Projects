@@ -1,0 +1,21 @@
+.DS_Store
+Thumbs.db
+
+
+### Django ###
+*.log
+*.pot
+*.pyc
+ajax_pagination_project/settings.py
+ajax_pagination_project/__pycache__/
+.env
+/db.sqlite3
+media/
+
+
+## Maika Northrop App ##
+apps/pagination/models.py
+apps/pagination/views.py
+apps/pagination/__pycache__/
+
+

@@ -1,0 +1,42 @@
+{% extends 'multiple_apps/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Survey Form
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+    <div class="card-panel teal lighten-3"><span class="h4 mb-3 font-weight-normal">Thanks for submitting this form! you</span><br>
+    <span class="h4 mb-3 font-weight-normal">have submitted this form <b>{{ count }}</b> times now.</span>
+
+</div>
+    <div class="card-panel teal lighten-3">             
+                        <h3 class="h4 mb-3 font-weight-normal"><u>Submitted Information</u></h3> 
+        <table style="width:100%">
+        <tr>
+                <th>Name:</th>
+                <th>Dojo Location:</th> 
+                <th>Favorite Language:</th>
+                <th>Comment:</th>
+        </tr>
+        <tr>
+                <td>{{ request.session.name }}</td>
+                <td>{{ request.session.dojo }}</td> 
+                <td>{{ request.session.language }}</td>
+                <td>{{ request.session.comment }} </td>
+
+        </tr>
+       
+        </table>
+        <p></p>
+        <button class="btn-small waves-effect red lighten-2 z-depth-3"><a href="{% url 'survey' %}"><b>Go Back</b></a></button> 
+
+
+        </div>
+</div>
+{% endblock %}

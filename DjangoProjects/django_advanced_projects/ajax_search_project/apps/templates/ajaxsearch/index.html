@@ -1,0 +1,36 @@
+{% extends 'multiple_apps/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  File Upload
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+    <div class="flex-container">
+        <span class="h2 mb-3 font-weight-normal">Ajax Search</span> 
+        
+    </div> 
+    <div class="card-panel teal lighten-2">               
+            <form action="http://www.google.com/search" method="GET">
+              {% csrf_token %}
+                    <div class="file-field input-field flex-container">
+                      <div  class="flex-container">
+                        <span class="h4 mb-3 font-weight-normal">Enter Keyword</span>
+                        <input type="text" multiple>
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate btn waves-effect red lighten-2 z-depth-3" type="submit" value="Search">
+                      </div>
+                    </div>
+                  </form>                   
+        </div>
+
+
+
+</div>
+{% endblock %}

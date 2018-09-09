@@ -1,0 +1,28 @@
+{% extends 'multiple_apps/base.html' %}
+
+<title>
+    {% block title %}
+    {{ block.super }}  Random Word Generator
+    {% endblock title %}
+</title>
+
+
+{% block content %}
+
+
+<div class="container">
+        <div class="card-panel teal lighten-3">               
+                    <div class="flex-container">
+                            <span class="h3 mb-3 font-weight-normal">Random Word Generator!</span><br>
+                            <div class="flex-container">
+                                <button class="waves-effect teal lighten-1 btn z-depth-3 btn-sm"><a href="{% url 'generate' %}">Generate</a></button><p></p>
+                                <div class = "randomwords h3 font-weight-normal">  
+                                    <p class="rword">{{ randomword }}</p>
+                                </div>
+                            </div>       
+                            <h4 class="h4 mb-3 font-weight-normal">Random Word attempt #: {{ count }}</h4>     
+                    </div>                      
+            </div>
+            <button class="waves-effect teal lighten-1 btn z-depth-3 btn-sm h5" type="submit"><a href="{% url 'resetword' %}">Reset</a></button> 
+</div>
+{% endblock %}
