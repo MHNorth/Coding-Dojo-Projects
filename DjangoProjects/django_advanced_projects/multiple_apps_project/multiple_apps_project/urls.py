@@ -34,12 +34,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.multiple_apps.urls')),
     # path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += [
-        re_path(r'^media/(?P<path>.*)$', serve, {
-            'document_root': settings.MEDIA_ROOT,
-            }),
-            ]
-
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+ 

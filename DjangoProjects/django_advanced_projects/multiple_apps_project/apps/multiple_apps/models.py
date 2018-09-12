@@ -56,15 +56,15 @@ class UploadFile(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)  
 
     def __obj__(self):
-        return str(self.documentfile)
+        return '%s' % self.documentfile
 
 
-class UploadImage(models.Model):    
+class UploadImage(models.Model):      
     imagefile = models.ImageField(upload_to='media/pics', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __obj__(self):
-        return str(self.imagefile)
+        return '%s' % self.imagefile
 
     
 

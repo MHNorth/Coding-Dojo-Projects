@@ -22,7 +22,7 @@ urlpatterns = [
         path('survey/submit', views.SurveryFormSubmit, name='surveysubmit'),
         path('results', views.Results, name='results'),
         path('upload', views.Upload, name='upload'),
-        path('upload/file/', views.Upload_file, name='uploadfile'),
-        path('upload/image/', views.Upload_image, name='uploadimage')
+        path('upload/file/', views.Upload_Files, name='uploadfiles'),
+        path('upload/image/', views.Upload_Images, name='uploadimages')
         
 ]

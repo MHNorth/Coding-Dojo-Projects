@@ -1,0 +1,31 @@
+{% extends 'multiple_apps/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  File and Image Upload
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+    <div class="flex-container">
+        <span class="h3 mb-3 font-weight-normal">File and Image Upload</span> 
+        
+    </div> 
+    <div class="card-panel teal lighten-2 flex-container">                                         
+       <form method="post" encthype="multipart/form-data" action="{% url 'uploadimage' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="input-field col s6">
+          <button class="btn btn-outline-success waves-effect red lighten-2 z-depth-3" type="submit">Upload Files</button><br><br>
+        </div>
+        </form>
+
+
+
+</div>
+
+{% endblock %}

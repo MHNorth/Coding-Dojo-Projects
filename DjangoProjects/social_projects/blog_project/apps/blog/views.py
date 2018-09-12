@@ -4,8 +4,26 @@ from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy
 
 
-def PostHome(request):
-        return render(request, 'blog/post_home.html')  
+def Home(request):
+        return render(request, 'blog/index.html') 
+
+def Fashion(request):
+        return render(request, 'blog/fashion.html')  
+
+def Model(request):
+        return render(request, 'blog/model.html')  
+
+def Travel(request):
+        return render(request, 'blog/travel.html')  
+
+def Contact(request):
+        return render(request, 'blog/contact.html')  
+
+def About(request):
+        return render(request, 'blog/about.html')  
+
+def BlogPage(request):
+        return render(request, 'blog/blog.html')  
 
 def PostDetail(request):
         return render(request, 'blog/post_detail.html')  

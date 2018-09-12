@@ -7,10 +7,12 @@ from django.core.files.storage import default_storage
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.views.generic.edit import FormView
 
 
 from .models import Word, Survey, UploadFile, UploadImage
 from .forms import ImageUploadForm, FileUploadForm
+from django.forms import modelformset_factory
 from time import localtime, strftime
 
 ##----------------------------------------##
@@ -222,67 +224,52 @@ def Results(request, *args, **kwargs):
 ##---------- Upload Views ----------##
 
 
-def Upload(request):
-        if request.session:
-                allfile_uploads = UploadFile.objects.all()
-                allimage_uploads = UploadImage.objects.all()
-                context = {
-                        'allfile_uploads': allfile_uploads,
-                        'allimage_uploads': allimage_uploads,
-                }     
+def Upload(request): 
+        all_files = UploadFile.objects.all()
+        all_images = UploadImage.objects.all()
+        image_form = forms.ImageUploadForm()
+        file_form = forms.FileUploadForm()
+        upload_files = UploadFile()
+        
+        context = {
+        "images_key": all_images,
+        "form_key": image_form,
+        "file_fr": file_form,
+        "upload_key": upload_files,
+        "files_key": all_files,
+        }
+
         return render(request, 'multiple_apps/upload_file.html', context) 
 
 
-def Upload_file(request):
-        if request.method == "POST":  
-                user_file = request.POST['ufile']
-                form_class = FileUploadForm
-                fileform = form_class(
-                        data=user_file, 
-                        files=request.FILES, 
-                        )
+def Upload_Images(FormView):
+                    
+        form_class = forms.ImageUploadForm
+        template_name='upload_file.html'
+        success_url = '/upload/'
+
+
+        def post(self, request, *args, **kwargs):
+                form_class = self.get_form_class()
+                form = self.get_form(form_class)
+                files = request.FILES.getlist('image')
                 
-                if fileform.is_valid():
-                        UploadFile.objects.create(
-                                upfiles=fileform.cleaned_data['upfiles'],
+                if form.is_valid():
+                        return self.form_valid(form)
+                else:
+                        return self.form_invalid(form)
+
+
+def Upload_Files(request):
         
-                        )
-                        messages.success(request, 'Your document file has been successfully uploaded.')
-                        
-                        return redirect('upload') 
-                else:
-                        fileuploads = UploadFile.documentfile.all()
-                        context = {
-                                'fileform': fileform,
-                                'fileuploads': fileuploads,
-                        }
-                        return redirect('upload', context)
+        if request.method=="POST":
+                upload_files = UploadFile()
+                upload_files.post(request)
+        else:
+                return redirect('upload')
 
 
 
-def Upload_image(request):
-        request.session['uimage'] = request.POST['uimage']
-        form_class = ImageUploadForm
-        if request.method == "POST":  
-                imageform = form_class(
-                        data=request.POST, 
-                        files=request.FILES, 
-                        )
-                
-                if imageform.is_valid():
-                        UploadImage.objects.create(
-                                upimagess=imageform.cleaned_data['upimages'],
-                        )
-                        messages.success(request, 'Your image has been successfully uploaded.')
-                        
-                        return redirect('upload') 
-                else:
-                        imageuploads = UploadImage.documentfile.all()
-                        context = {
-                                'imageform': imageform,
-                                'imageuploads': imageuploads,
-                        }
-                        return redirect('upload', context)
 
 
 
