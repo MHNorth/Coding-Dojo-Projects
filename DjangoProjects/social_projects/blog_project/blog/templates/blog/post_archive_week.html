@@ -1,0 +1,55 @@
+{% extends "blog/base.html" %}
+
+<title>
+    {% block title %}
+    {{ block.super }}  Blog Post
+    {% endblock title %}
+</title>
+
+
+{% block content %}
+
+      <section class="ftco-fixed clearfix">
+      	<div class="image js-fullheight float-left">
+      		<div class="home-slider owl-carousel js-fullheight">
+		        <div class="slider-item js-fullheight" style="background-image: url('static/images/bg_1.jpg');">
+		          <div class="overlay"></div>
+		          <div class="container">
+		            <div class="row slider-text align-items-end" data-scrollax-parent="true">
+		              <div class="col-md-10 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		              	<p class="breadcrumbs"><span><a href="url('blog/index.html)">Home</a></span> <span>ABOUT</span></p>
+		                <h1 class="mb-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Us</h1>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+      	</div><!-- end:image -->
+      	<div class="page-container float-right">
+      		<div class="row about-section">
+      			<div class="col-md-6 ftco-animate">
+      				<img src="url('static/images/about.jpg')" class="img-fluid" alt="">
+      			</div>
+      			<div class="col-md-6 ftco-animate">
+      				<h2 class="mb-4">Post archives for week {{ week|date:"W" }}, {{ week|date:"Y" }}</h2>
+                    <ul>
+                    {% for post in object_list %}
+                        <li>
+                        <a href="{% url 'blog_post_detail' post.slug %}">{{ post.title }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+      			</div>
+      			<div class="col-md-12 mt-5 ftco-animate">
+      				<h3 class="mb-4 mt-5">Follow us here</h3>
+      				<ul class="ftco-footer-social list-unstyled">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+      			</div>
+      		</div>
+      	</div><!-- end: page-container-->
+      </section>
+    	
+      {% endblock  %}

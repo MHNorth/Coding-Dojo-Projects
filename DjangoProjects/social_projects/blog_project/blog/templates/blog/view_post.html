@@ -1,0 +1,82 @@
+{% extends "blog/base.html" %}
+
+<title>
+    {% block title %}
+    {{ block.super }}  Blog Post
+    {% endblock title %}
+</title>
+
+
+{% block content %}
+
+      <section class="ftco-fixed clearfix">
+      	<div class="image js-fullheight float-left">
+      		<div class="home-slider owl-carousel js-fullheight">
+		        <div class="slider-item js-fullheight" style="background-image: url('static/images/bg_1.jpg');">
+		          <div class="overlay"></div>
+		          <div class="container">
+		            <div class="row slider-text align-items-end" data-scrollax-parent="true">
+		              <div class="col-md-10 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		              	<p class="breadcrumbs"><span><a href="url('blog/index.html)">Home</a></span> <span>ABOUT</span></p>
+		                <h1 class="mb-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Us</h1>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+      	</div><!-- end:image -->
+      	<div class="page-container float-right">
+      		<div class="row about-section">
+      			<div class="col-md-6 ftco-animate">
+      				<img src="url('static/images/about.jpg')" class="img-fluid" alt="">
+      			</div>
+      			<div class="col-md-6 ftco-animate">
+                    <div>
+                        <h2 class="mb-3">{{ post.title }}</h2>
+                        <div class="content">
+                            <p>
+                                {{ post.text }}
+                            </p>
+                            <span>
+                                Written by {{ post.author }}  on {{ post.created_on }}
+                            </span>
+                        </div>
+                        {% if post.comment_set.all %}<!--Since Comment has a ForeignKey to Post, each Post object automatically gets a comment_set property which provides an interface to that particular Post’s comments.-->
+                        <h2>Comments</h2>
+                        <div class="comments">
+                            {% for comment in post.comment_set.all %}
+                            <span>
+                                <a href="{{ comment.website }}">{{ comment.name }}</a> said on {{ comment.created_on }}
+                            </span>
+                            <p>
+                                {{ comment.text }}
+                            </p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+        
+                        <br />
+        
+                        <h2>Add Comment</h2>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <table>
+                                {{ form.as_table }}
+                            </table>
+                            <input type="submit" name="submit" value="Submit" />
+                        </form>
+                    </div>
+      			</div>
+      			<div class="col-md-12 mt-5 ftco-animate">
+      				<h3 class="mb-4 mt-5">Follow us here</h3>
+      				<ul class="ftco-footer-social list-unstyled">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+      			</div>
+      		</div>
+      	</div><!-- end: page-container-->
+      </section>
+    	
+      {% endblock  %}

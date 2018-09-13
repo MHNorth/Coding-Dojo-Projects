@@ -1,0 +1,186 @@
+{% extends "blog/base.html" %}
+
+<title>
+    {% block title %}
+    {{ block.super }}  Blog Post
+    {% endblock title %}
+</title>
+
+
+{% block content %}
+
+      <section class="ftco-fixed clearfix">
+      	<div class="image js-fullheight float-left">
+      		<div class="home-slider owl-carousel js-fullheight">
+		        <div class="slider-item js-fullheight" style="background-image: url('static/images/bg_1.jpg');">
+		          <div class="overlay"></div>
+		          <div class="container">
+		            <div class="row slider-text align-items-end" data-scrollax-parent="true">
+		              <div class="col-md-10 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		              	<p class="cat"><span>Fashion</span></p>
+		                <h1 class="mb-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Popular Lifestyle with Fashion &amp; Modeling</h1>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+
+		        <div class="slider-item js-fullheight" style="background-image: url('static/images/bg_2.jpg');">
+		          <div class="overlay"></div>
+		          <div class="container">
+		            <div class="row slider-text align-items-end" data-scrollax-parent="true">
+		              <div class="col-md-10 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		              	<p class="cat"><span>Model</span></p>
+		                <h1 class="mb-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Canadian Girl make your world go round</h1>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+      	</div>
+
+      	<div class="page-container float-right">
+      		<div class="row">
+      			<div class="col-md-12">
+	      			<div class="blog-entry-2 ftco-animate">
+	      				<a href="https://vimeo.com/45830194" class="blog-img popup-vimeo d-flex justify-content-center align-items-center" style="background-image: url(static/images/image_1.jpg);">
+	      					<div class="icon d-flex justify-content-center align-items-center">
+	      						<span class="icon-play"></span>
+	      					</div>
+	      				</a>
+	      				<div class="d-flex">
+		      				<div class="meta pt-4">
+	                  <p>
+	                  	<span>Admin</span>
+	                  	<span><a href="#">July 29, 2018</a></span>
+	                  	<span><a href="#">Video</a></span>
+	                  	<span><a href="#">12 Comments</a></span>
+	                  </p>
+	                </div>
+		      				<div class="text p-5">
+		      					<h3 class="mb-4">Watch video tutorial on how to make do photoshop edting</h3>
+		      					<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
+		      					<p class="mt-5"><a href="{% url 'blogpage' %}" class="btn btn-primary">Read more</a></p>
+		      				</div>
+	      				</div>
+	      			</div>
+
+	      			<div class="blog-entry-2 ftco-animate">
+	      				<a href="{% url 'blogpage' %}"  class="blog-img d-flex justify-content-center align-items-center" style="background-image: url(static/images/image_2.jpg);">
+	      				</a>
+	      				<div class="d-flex">
+		      				<div class="meta pt-4">
+	                  <p>
+	                  	<span>Admin</span>
+	                  	<span><a href="#">July 29, 2018</a></span>
+	                  	<span><a href="#">Fashion</a></span>
+	                  	<span><a href="#">12 Comments</a></span>
+	                  </p>
+	                </div>
+		      				<div class="text p-5">
+		      					<h3 class="mb-4">The Big Oxmox advised her not to do so, because there</h3>
+		      					<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
+		      					<p class="mt-5"><a href="{% url 'blogpage' %}"  class="btn btn-primary">Read more</a></p>
+		      				</div>
+	      				</div>
+	      			</div>
+
+	      			<div class="blog-entry-2 ftco-animate">
+	      				<a href="{% url 'blogpage' %}"  class="blog-img d-flex justify-content-center align-items-center" style="background-image: url(static/images/image_3.jpg);">
+	      				</a>
+	      				<div class="d-flex">
+		      				<div class="meta pt-4">
+	                  <p>
+	                  	<span>Admin</span>
+	                  	<span><a href="#">July 29, 2018</a></span>
+	                  	<span><a href="#">Lifestyle</a></span>
+	                  	<span><a href="#">12 Comments</a></span>
+	                  </p>
+	                </div>
+		      				<div class="text p-5">
+		      					<h3 class="mb-4">The Big Oxmox advised her not to do so, because there</h3>
+		      					<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
+		      					<p class="mt-5"><a href="{% url 'blogpage' %}"  class="btn btn-primary">Read more</a></p>
+		      				</div>
+	      				</div>
+	      			</div>
+
+	      			<div class="blog-entry-2 ftco-animate">
+	      				<a href="{% url 'blogpage' %}"  class="blog-img d-flex justify-content-center align-items-center" style="background-image: url(static/images/image_4.jpg);">
+	      				</a>
+	      				<div class="d-flex">
+		      				<div class="meta pt-4">
+	                  <p>
+	                  	<span>Admin</span>
+	                  	<span><a href="#">July 29, 2018</a></span>
+	                  	<span><a href="#">Travel</a></span>
+	                  	<span><a href="#">12 Comments</a></span>
+	                  </p>
+	                </div>
+		      				<div class="text p-5">
+		      					<h3 class="mb-4">The Big Oxmox advised her not to do so, because there</h3>
+		      					<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
+		      					<p class="mt-5"><a href="{% url 'blogpage' %}"  class="btn btn-primary">Read more</a></p>
+		      				</div>
+	      				</div>
+	      			</div>
+
+	      			<div class="blog-entry-2 ftco-animate">
+	      				<a href="{% url 'blogpage' %}"  class="blog-img d-flex justify-content-center align-items-center" style="background-image: url(static/images/image_5.jpg);">
+	      				</a>
+	      				<div class="d-flex">
+		      				<div class="meta pt-4">
+	                  <p>
+	                  	<span>Admin</span>
+	                  	<span><a href="#">July 29, 2018</a></span>
+	                  	<span><a href="#">Model</a></span>
+	                  	<span><a href="#">12 Comments</a></span>
+	                  </p>
+	                </div>
+		      				<div class="text p-5">
+		      					<h3 class="mb-4">The Big Oxmox advised her not to do so, because there</h3>
+		      					<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
+		      					<p class="mt-5"><a href="{% url 'blogpage' %}"  class="btn btn-primary">Read more</a></p>
+		      				</div>
+	      				</div>
+	      			</div>
+
+	      			<div class="blog-entry-2 ftco-animate">
+	      				<a href="{% url 'blogpage' %}"  class="blog-img d-flex justify-content-center align-items-center" style="background-image: url(static/images/image_6.jpg);">
+	      				</a>
+	      				<div class="d-flex">
+		      				<div class="meta pt-4">
+	                  <p>
+	                  	<span>Admin</span>
+	                  	<span><a href="#">July 29, 2018</a></span>
+	                  	<span><a href="#">Fashion</a></span>
+	                  	<span><a href="#">12 Comments</a></span>
+	                  </p>
+	                </div>
+		      				<div class="text p-5">
+		      					<h3 class="mb-4">The Big Oxmox advised her not to do so, because there</h3>
+		      					<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
+		      					<p class="mt-5"><a href="{% url 'blogpage' %}"  class="btn btn-primary">Read more</a></p>
+		      				</div>
+	      				</div>
+	      			</div>
+      			</div>
+      		</div>
+      		<div class="row mt-5">
+	          <div class="col text-center">
+	            <div class="block-27">
+	              <ul>
+	                <li><a href="#">&lt;</a></li>
+	                <li class="active"><span>1</span></li>
+	                <li><a href="#">2</a></li>
+	                <li><a href="#">3</a></li>
+	                <li><a href="#">4</a></li>
+	                <li><a href="#">5</a></li>
+	                <li><a href="#">&gt;</a></li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+      	</div><!-- end: page-container-->
+      </section>
+    	
+			{% endblock  %}
