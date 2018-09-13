@@ -1,0 +1,62 @@
+{% extends 'pastebin/base.html' %}
+
+<title>
+    {% block title %}
+    {{ block.super }}  Pastebin List
+    {% endblock title %}
+</title>
+
+
+{% block content %}
+
+{% if messages %}
+    <div class="messages">
+    <ul>
+    {% for message in messages %}
+        <li class="{{ message.tag }}">
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+
+<div class="container">
+    <div class="socialheading">
+        <span class="h2 mb-3 font-weight-normal">Welcome to the Pastebin Project.</span>
+    </div>
+    <div class="card-panel teal lighten-3">
+        <div class="flex-container">
+                <span class="h2 mb-3 font-weight-normal">Pastebin List View</span>
+                {% if object_list %}
+                <h1 class="h3 mb-3 font-weight-normal">Recent Pastes:</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Date Created</th>
+                            <th>User Name</th>
+                            <th>Title</th>
+                            <th>User Text</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for paste in object_list %}
+                    <tr>
+                        <td><a class="sblue" href="{% url 'pastebin_paste_detail' paste.id  %}">{{ paste.id }}</a></td>
+                        <td>{{ paste.created_on }}</td>
+                        <td>{{ paste.name }}</td>
+                        <td> {{ paste.title }}</td> 
+                        <td> {{ paste.text }}</td>                         
+                    </tr>                    
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h1>No recent pastes</h1>
+                {% endif %}       
+        </div>   
+    </div>
+
+
+{% endblock content %}

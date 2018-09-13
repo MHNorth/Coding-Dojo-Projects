@@ -1,0 +1,72 @@
+{% extends 'pastebin/base.html' %}
+
+<title>
+    {% block title %}
+    {{ block.super }}  Pastebin Detail
+    {% endblock title %}
+</title>
+
+
+{% block content %}
+
+{% if messages %}
+    <div class="messages">
+    <ul>
+    {% for message in messages %}
+        <li class="{{ message.tag }}">
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+
+
+<div class="container">
+    <div class="socialheading">
+        <span class="h2 mb-3 font-weight-normal">Welcome to the Pastebin Project.</span>
+    </div>
+    <div class="card-panel teal lighten-3">
+        <div class="flex-container">
+                <h2 class="h2 mb-3 font-weight-normal">Paste Details:</h2>
+                <p>
+                    <div>
+                        <label>ID</label>
+                        <span>{{ object.id }}</span>
+                    </div>
+                    <div>
+                        <label>ID</label>
+                        <span>{{ object.title }}</span>
+                    </div>
+                    <div>
+                        <label>Name</label>
+                        <span>{{ object.name }}</span>
+                    </div>
+                    <div>
+                        <label>Text</label>
+                        <span>{{ object.text }}</span>
+                    </div>
+                    <div>
+                        <label>Created</label>
+                        <span>{{ object.created_on }}</span>
+                    </div>
+                    <div>
+                        <label>Modified</label>
+                        <span>{{ object.updated_on }}</span>
+                    </div>
+                </p>  
+                <h2 class="h2 mb-3 font-weight-normal">Actions</h2>
+                <ul>
+                    <li>
+                        <a href="{% url 'pastebin_paste_edit' object.id %}">Edit this paste</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'pastebin_paste_delete' object.id %}">Delete this paste</a>
+                    </li>
+                </ul>
+                <a href="{% url 'pastebin_paste_list' %}">View All</a>                
+        </div>   
+    </div>
+
+
+{% endblock content %}

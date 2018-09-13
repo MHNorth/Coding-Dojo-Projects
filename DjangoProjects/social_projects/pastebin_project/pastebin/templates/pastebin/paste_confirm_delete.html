@@ -1,0 +1,29 @@
+{% extends 'pastebin/base.html' %}
+
+<title>
+    {% block title %}
+    {{ block.super }}  Pastebin Create
+    {% endblock title %}
+</title>
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="socialheading">
+        <span class="h2 mb-3 font-weight-normal">Welcome to the Pastebin Project.</span>
+    </div>
+    <div class="card-panel teal lighten-3">
+        <div class="flex-container">
+                <h1 class="h2 mb-3 font-weight-normal">Confirm Delete</h1>
+                <h1 class="h3 mb-3 font-weight-normal"><b>Are you sure you want to delete "{{ object.title }}" ?</b></h1>
+                <h2 class="h3 mb-3 font-weight-normal">This action cannot be undone.</h2><br><br>
+                <form action="{% url 'pastebin_paste_delete' object.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete" class="btn-small waves-effect red lighten-2 z-depth-3">
+                </form>         
+        </div>   
+    </div>
+
+{% endblock content %}
