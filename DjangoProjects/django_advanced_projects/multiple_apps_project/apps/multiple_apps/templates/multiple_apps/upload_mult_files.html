@@ -3,7 +3,7 @@
 
 <title>
         {% block title %}
-        {{ block.super }}  Upload Image
+        {{ block.super }}  Multiple Files Upload
         {% endblock title %}
 </title>
 
@@ -12,7 +12,7 @@
 
 <div class="container">
     <div class="flex-container">
-        <span class="h3 mb-3 font-weight-normal">Image Upload</span> 
+        <span class="h3 mb-3 font-weight-normal">Upload Multiple Files</span> 
         
     </div> 
     <div class="card-panel teal lighten-2 flex-container">                                         
@@ -23,14 +23,13 @@
 
                 <input class="btn btn-outline-success waves-effect red lighten-2 z-depth-3" type="submit" value = "Submit"><br><br> 
                 
-                {% for i in uploads %}
-                <p>Uploaded File: {{ i.documentfile }}</p>
+                {% for i in mult_uploads %}
+                <p>Uploaded File #: {{ i.pk }} "{{ i.multiplefiles }}"</p>
                 {% endfor %}
             </form>
 
+ 
     </div>
-
-
 
 
 </div>

@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from apps.multiple_apps import views
 
 
 urlpatterns = [
@@ -19,10 +19,13 @@ urlpatterns = [
         path('addwords', views.Addword, name='addwords'),
         path('clear', views.Clear, name='clear'),       
         path('survey', views.SurveyForm, name='survey'),
-        path('survey/submit', views.SurveryFormSubmit, name='surveysubmit'),
-        path('results', views.Results, name='results'),
-        path('upload', views.Upload, name='upload'),
-        path('upload/file/', views.Upload_Files, name='uploadfiles'),
-        path('upload/image/', views.Upload_Images, name='uploadimages')
+        path('survey/clear', views.ClearSurvey, name='clearsurvey'),
+        path('survey/submit', views.SurveyFormSubmit),
+        path('survey/results', views.Results, name='results'),
+        path('upload/singlefile', views.SingleUpload, name='uploadsingle'),
+        path('upload/multiplefile', views.MultipleUpload, name='multiple'),
+        path('upload/image', views.ImageUpload, name='images'),
+        path('search', views.Search, name='search'),
         
 ]
+

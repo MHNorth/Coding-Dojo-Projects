@@ -1,0 +1,40 @@
+{% extends 'multiple_apps/base.html' %}
+
+
+<title>
+        {% block title %}
+        {{ block.super }}  Upload Image
+        {% endblock title %}
+</title>
+
+
+{% block content %}
+
+<div class="container">
+    <div class="flex-container">
+        <span class="h3 mb-3 font-weight-normal">Search Query</span> 
+        
+    </div> 
+    <div class="card-panel teal lighten-2 flex-container">                                         
+            <div class="col-sm-3 col-md-3 pull-right">
+                    <form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Search Terms"
+                                                                    name="srch-term" id="srch-term">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+    </div>
+
+
+
+
+</div>
+
+{% endblock %}

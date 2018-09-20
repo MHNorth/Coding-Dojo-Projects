@@ -3,7 +3,7 @@
 
 <title>
         {% block title %}
-        {{ block.super }}  File and Image Upload
+        {{ block.super }}  Image Upload
         {% endblock title %}
 </title>
 
@@ -12,19 +12,22 @@
 
 <div class="container">
     <div class="flex-container">
-        <span class="h3 mb-3 font-weight-normal">File and Image Upload</span> 
+        <span class="h3 mb-3 font-weight-normal">Image Upload</span> 
         
     </div> 
     <div class="card-panel teal lighten-2 flex-container">                                         
-       <form method="post" encthype="multipart/form-data" action="{% url 'uploadimage' %}">
+       <form method="post" encthype="multipart/form-data" action="">
         {% csrf_token %}
-        {{ form.as_p }}
-        <div class="input-field col s6">
-          <button class="btn btn-outline-success waves-effect red lighten-2 z-depth-3" type="submit">Upload Files</button><br><br>
-        </div>
+            
+            {{ form.as_p }}
+
+            <input class="btn btn-outline-success waves-effect red lighten-2 z-depth-3" type="submit" value = "Upload Image"><br><br>
+
+            {% for i in img %}
+            <img src="{{ i.imagefile.url }}" alt="" width="350px"/>
+            {% endfor %}
+            
         </form>
-
-
 
 </div>
 

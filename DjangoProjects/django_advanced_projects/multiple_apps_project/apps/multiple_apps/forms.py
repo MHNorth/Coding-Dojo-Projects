@@ -1,30 +1,21 @@
-from django import forms
-from .models import UploadFile, UploadImage
+from django.forms import ModelForm, forms
+from .models import UploadFile, UploadImage, MultipleFiles
 
 
-class ImageUploadForm(forms.ModelForm):
+class ImageUploadForm(ModelForm):
     class Meta:
-        model=UploadImage
-        fields=('imagefile',)
-        widgets = {
-        "title": forms.TextInput(
-                attrs={
-                    "required": "True",
-                    "autofocus": "True",
-                }
-            ),
-        "imagefile": forms.FileInput(attrs={'multiple': True}),
-        }
+        image_model=UploadImage
+        fields=['imagefile',]
 
 
-
-class FileUploadForm(forms.ModelForm):
-    docfile = forms.FileField(
-        label='Select a file',
-    )
+class FileUploadForm(ModelForm):
+    upload_model=UploadFile
+    fields=['documentfile',]
 
 
-            
+class MultipleUploadForm(ModelForm):
+    upload_mult=MultipleFiles
+    fields= ['documentfile',]
 
 
 

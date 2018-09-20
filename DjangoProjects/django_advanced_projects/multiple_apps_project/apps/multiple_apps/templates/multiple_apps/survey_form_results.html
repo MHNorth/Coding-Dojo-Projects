@@ -24,16 +24,21 @@
                 <th>Favorite Language:</th>
                 <th>Comment:</th>
         </tr>
-        <tr>
-                <td>{{ request.session.name }}</td>
-                <td>{{ request.session.dojo }}</td> 
-                <td>{{ request.session.language }}</td>
-                <td>{{ request.session.comment }} </td>
-
+        <tr>         
+                <td>{{ name }}</td>
+                <td>{{ dojo }}</td> 
+                <td>{{ lang }}</td>
+                <td>{{ com }} </td>
         </tr>
+     
        
         </table>
         <p></p>
+        <form action="survey/clear" method="POST">
+        {% csrf_token %}
+        <input class="btn waves-effect teal lighten-2 z-depth-3" name="name" type="submit" value="Reset Survey">
+        <p></p>
+        </form>
         <button class="btn-small waves-effect red lighten-2 z-depth-3"><a href="{% url 'survey' %}"><b>Go Back</b></a></button> 
 
 

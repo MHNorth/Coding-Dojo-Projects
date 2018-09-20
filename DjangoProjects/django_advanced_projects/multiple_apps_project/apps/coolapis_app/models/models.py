@@ -58,24 +58,12 @@ class UploadFile(models.Model):
         return '%s' % self.documentfile
 
 
-
-class MultipleFiles(models.Model):      
-    multiplefiles = models.FileField(upload_to='documents/%m-%d-%y/', blank=True, null=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __obj__(self):
-        return '%s' % self.imagefile
-
-
 class UploadImage(models.Model):      
     imagefile = models.ImageField(upload_to='pictures/%m-%d-%y/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __obj__(self):
         return '%s' % self.imagefile
-
-
-
 
     
 
