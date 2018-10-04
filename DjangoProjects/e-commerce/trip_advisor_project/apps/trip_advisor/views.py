@@ -59,6 +59,8 @@ def add_trip(request):
     }
     return render(request, "belt_app/addtrip.html", data)
 
+
+
 def travels(request, user_id):
     print(user_id)
 
